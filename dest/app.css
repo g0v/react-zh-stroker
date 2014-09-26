@@ -89,3 +89,27 @@ td {
 a img {
   border: none;
 }
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #16161d;
+}
+.app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  height: 120px;
+  line-height: 120px;
+  margin: auto;
+  padding: 10px 20px;
+  text-align: center;
+  color: #fff;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
