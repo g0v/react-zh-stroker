@@ -13,14 +13,14 @@ path =
 
 gulp.task \js ->
   gulp
-    .src "#{path.src}/ls/**/*.ls"
+    .src "#{path.src}/**/*.ls"
     .pipe livescript!
     .pipe gulp.dest "#{path.dest}/"
     .pipe connect.reload!
 
 gulp.task \css ->
   gulp
-    .src "#{path.src}/stylus/**/*.styl"
+    .src "#{path.src}/**/*.styl"
     .pipe stylus use: [nib!]
     .pipe gulp.dest "#{path.dest}/"
     .pipe connect.reload!
@@ -52,8 +52,8 @@ gulp.task \build <[webpack html]>
 
 gulp.task \watch <[build]> ->
   gulp
-    ..watch "#{path.src}/ls/**/*.ls"    <[webpack]>
-    ..watch "#{path.src}/stylus/**/*.styl"  <[webpack]>
+    ..watch "#{path.src}/**/*.ls"    <[webpack]>
+    ..watch "#{path.src}/**/*.styl"  <[webpack]>
     ..watch "#{path.src}/*.jade"     <[html]>
 
 gulp.task \server <[watch]> ->
