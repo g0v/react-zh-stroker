@@ -1,6 +1,6 @@
-# jsl-seed -- the seed for Jade, Stylus, LiveScript apps
+# seed -- the seed for Jade, Stylus, LiveScript and React apps
 
-This project is an application skeleton for anyone who loves Jade, Stylus and LiveScript.
+This project is an application skeleton for anyone who loves Jade, Stylus, LiveScript and React.
 
 ## Usage
 
@@ -14,18 +14,18 @@ npm start
 ```
 # all of the sources
 src/
-  stylus/
-    *.styl
-  ls/
+  app/
     *.ls
-  *.jade
+    *.styl
+  index.ls
+  index.jade
 
 # all of the files which are created and watched by gulp
-# you can host them with gh-pages
-dest/
+# so you can host them with gh-pages
+dist/
   **/*.css
   **/*.js
-  main.js
-build.js
-*.html    # from src/index.jade
+  index.js
+bundle.js
+index.html
 ```

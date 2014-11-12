@@ -1,64 +1,76 @@
-require! <[gulp gulp-concat nib]>
-connect    = require \gulp-connect
-gutil      = require \gulp-util
-webpack    = require \gulp-webpack
-livescript = require \gulp-livescript
-stylus     = require \gulp-stylus
-jade       = require \gulp-jade
+require! {
+  'path'
+  'nib'
+  'webpack'
+  'webpack-dev-server': WebpackDevServer
+  'gulp'
+  'gulp-util': gutil
+  'gulp-livescript': livescript
+  'gulp-stylus': stylus
+  'gulp-jade': jade
+}
 
-path =
-  src:   './src'
-  dest:  './dest'
-  build: '.'
+# http://stackoverflow.com/questions/7697038/more-than-10-lines-in-a-node-js-stack-error
+#Error.stackTraceLimit = Infinity
+
+options =
+  src:   path.resolve './src'
+  dist:  path.resolve './dist'
+  build: path.resolve '.'
 
 gulp.task \js ->
   gulp
-    .src "#{path.src}/**/*.ls"
+    .src "#{options.src}/**/*.ls"
     .pipe livescript!
-    .pipe gulp.dest "#{path.dest}/"
-    .pipe connect.reload!
+    .pipe gulp.dest options.dist
 
 gulp.task \css ->
   gulp
-    .src "#{path.src}/**/*.styl"
+    .src "#{options.src}/**/*.styl"
     .pipe stylus use: [nib!]
-    .pipe gulp.dest "#{path.dest}/"
-    .pipe connect.reload!
+    .pipe gulp.dest options.dist
 
 gulp.task \compile <[js css]>
 
 gulp.task \webpack <[compile]> ->
-  gulp
-    .src "#{path.dest}/main.js"
-    .pipe webpack do
-      context: "#{path.dest}/"
-      output:
-        filename: 'build.js'
-      module:
-        loaders:
-          * test: /\.css$/ loader: \style!css
-          ...
-    .pipe gulp.dest "#{path.build}/"
-    .pipe connect.reload!
+  port = 8080
+  host = 'localhost'
+  config =
+    entry:
+      * "webpack-dev-server/client?http://#host:#port"
+      * 'webpack/hot/dev-server'
+      * './dist'
+    output:
+      path: __dirname # required for webpack-dev-server
+      filename: 'bundle.js'
+      publicPath: '/'
+    plugins:
+      * new webpack.HotModuleReplacementPlugin
+      ...
+    module:
+      loaders:
+        * test: /\.css$/ loader: \style!css
+        * test: /\.js$/  loader: \react-hot
+        ...
+  webpack config
+  server = new WebpackDevServer do
+    webpack config
+    publicPath: config.output.publicPath
+    hot: true
+  server.listen port, host, (err) ->
+    throw gutil.PluginError '[webpack-dev-server]', err if err
+    gutil.log "Listening at #host:#port"
 
 gulp.task \html ->
   gulp
-    .src "#{path.src}/*.jade"
+    .src "#{options.src}/*.jade"
     .pipe jade!
-    .pipe gulp.dest "#{path.build}"
-    .pipe connect.reload!
+    .pipe gulp.dest options.build
 
-gulp.task \build <[webpack html]>
-
-gulp.task \watch <[build]> ->
+gulp.task \watch <[html webpack]> ->
   gulp
-    ..watch "#{path.src}/**/*.ls"    <[webpack]>
-    ..watch "#{path.src}/**/*.styl"  <[webpack]>
-    ..watch "#{path.src}/*.jade"     <[html]>
+    ..watch "#{options.src}/**/*.ls"    <[compile]>
+    ..watch "#{options.src}/**/*.styl"  <[compile]>
+    #..watch "#{options.src}/*.jade"     <[html]>
 
-gulp.task \server <[watch]> ->
-  connect.server do
-    root: path.build
-    livereload: on
-
-gulp.task \default <[server]>
+gulp.task \default <[watch]>
