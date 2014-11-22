@@ -12,6 +12,7 @@ Stroke = module.exports = React.createClass do
       length:  0
     x: 0
     y: 0
+    color: \black
     progress: Infinity
     onEnterStroke: ->
     onLeaveStroke: ->
@@ -59,6 +60,7 @@ Stroke = module.exports = React.createClass do
         comp = Track do
           key:      i
           data:     { bgn, end }
+          color: @props.color
           progress: progress
         progress -= bgn.length
         comp

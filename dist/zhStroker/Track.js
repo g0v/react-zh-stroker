@@ -19,6 +19,7 @@
         },
         x: 0,
         y: 0,
+        color: 'black',
         progress: Infinity
       };
     },
@@ -43,7 +44,7 @@
       }, path({
         d: valid ? track : 'M0 0 L0 0',
         fill: 'transparent',
-        stroke: '#000',
+        stroke: this.props.color,
         strokeWidth: valid ? 4 * bgn.size || 250 : 0,
         strokeLinecap: 'round'
       }));

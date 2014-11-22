@@ -14,6 +14,7 @@
         },
         x: 0,
         y: 0,
+        color: 'black',
         progress: Infinity,
         onEnterStroke: function(){},
         onLeaveStroke: function(){}
@@ -90,13 +91,14 @@
               bgn: bgn,
               end: end
             },
+            color: this.props.color,
             progress: progress
           });
           progress -= bgn.length;
           results$.push(comp);
         }
         return results$;
-      }()));
+      }.call(this)));
     }
   });
 }).call(this);

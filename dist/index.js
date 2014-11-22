@@ -11,8 +11,9 @@
     } catch (e$) {}
   };
   $.getJSON('./json/840c.json', function(data){
-    var progress, onEnter, onLeave, onEnterStroke, onLeaveStroke, App, app;
+    var colors, progress, onEnter, onLeave, onEnterStroke, onLeaveStroke, App, app;
     data = computeLength(data);
+    colors = ['#1234ef', '#000000', '#000000', '#000000', '#000000'];
     progress = 0;
     onEnter = function(){
       return log('enter');
@@ -49,6 +50,7 @@
         dim = 400;
         return div({}, Word({
           data: this.props.data,
+          color: colors[0],
           progress: this.state.progress,
           onEnter: onEnter,
           onLeave: onLeave,
@@ -56,12 +58,13 @@
           onLeaveStroke: onLeaveStroke
         }), (function(){
           var i$, results$ = [];
-          for (i$ = 0; i$ < 4; ++i$) {
+          for (i$ = 1; i$ <= 4; ++i$) {
             i = i$;
             dim /= 2;
             results$.push(Word({
               key: i,
               data: this.props.data,
+              color: colors[i],
               progress: this.state.progress,
               width: dim,
               height: dim

@@ -13,6 +13,7 @@ Word = module.exports = React.createClass do
     y: 0
     width:  410
     height: 410
+    color: \black
     progress: Infinity
     onEnter: ->
     onLeave: ->
@@ -42,6 +43,7 @@ Word = module.exports = React.createClass do
           comp = Stroke do
             key:      i
             data:     stroke
+            color:    @props.color
             progress: progress
             onEnterStroke: @props.onEnterStroke
             onLeaveStroke: @props.onLeaveStroke

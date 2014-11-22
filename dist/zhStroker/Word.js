@@ -15,6 +15,7 @@
         y: 0,
         width: 410,
         height: 410,
+        color: 'black',
         progress: Infinity,
         onEnter: function(){},
         onLeave: function(){},
@@ -58,6 +59,7 @@
           comp = Stroke({
             key: i,
             data: stroke,
+            color: this.props.color,
             progress: progress,
             onEnterStroke: this.props.onEnterStroke,
             onLeaveStroke: this.props.onLeaveStroke

@@ -15,6 +15,7 @@ Track = module.exports = React.createClass do
         y: 0
     x: 0
     y: 0
+    color: \black
     progress: Infinity
   render: ->
     { bgn, end } = @props.data
@@ -36,7 +37,7 @@ Track = module.exports = React.createClass do
           then track
           else 'M0 0 L0 0'
         fill: \transparent
-        stroke: \#000
+        stroke: @props.color
         stroke-width: if valid
           then 4 * bgn.size or 250
           else 0

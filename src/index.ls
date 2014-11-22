@@ -11,6 +11,7 @@ log = -> try console.log it
 # main
 data <- $.getJSON './json/840c.json'
 data = computeLength data
+colors = <[#1234ef #000000 #000000 #000000 #000000]>
 progress = 0
 
 onEnter = -> log 'enter'
@@ -32,17 +33,19 @@ App = React.createFactory React.createClass do
     div {},
       Word {
         data: @props.data
+        color: colors.0
         progress: @state.progress
         onEnter
         onLeave
         onEnterStroke
         onLeaveStroke
       }
-      for i til 4
+      for i from 1 to 4
         dim /= 2
         Word do
           key: i
           data: @props.data
+          color: colors[i]
           progress: @state.progress
           width:  dim
           height: dim
