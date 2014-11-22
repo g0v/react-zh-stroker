@@ -4,6 +4,7 @@ React             = require 'react'
 { computeLength } = require './zhStroker/data'
 #require './zhStroker/index.css'
 
+{ div } = React.DOM
 log = -> try console.log it
 
 ##
@@ -17,21 +18,38 @@ onLeave = -> log 'leave'
 onEnterStroke = -> log 'enter stroke'
 onLeaveStroke = -> log 'leave stroke'
 
-word = React.render do
-  Word {
-    data
-    progress
-    onEnter
-    onLeave
-    onEnterStroke
-    onLeaveStroke
-  }
+App = React.createFactory React.createClass do
+  displayName: 'App'
+  getDefaultProps: ->
+    data: {}
+  getInitialState: ->
+    progress: 0
+  update: ->
+    @setState progress: (@state.progress + 20) % @props.data.length
+    requestAnimationFrame @update
+  render: ->
+    dim = 400
+    div {},
+      Word {
+        data: @props.data
+        progress: @state.progress
+        onEnter
+        onLeave
+        onEnterStroke
+        onLeaveStroke
+      }
+      for i til 4
+        dim /= 2
+        Word do
+          key: i
+          data: @props.data
+          progress: @state.progress
+          width:  dim
+          height: dim
+
+app = React.render do
+  App { data }
   document.getElementById \container
 
-update = ->
-  word.setProps { progress }
-  progress += 20
-  if progress < data.length
-    requestAnimationFrame update
-requestAnimationFrame update
+requestAnimationFrame app.update
 
