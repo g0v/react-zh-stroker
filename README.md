@@ -23,7 +23,7 @@ Please check [g0v/zh-stroke-data](g0v/zh-stroke-data) for more information.
   <br />
   To the extent possible under law,
   <a rel="dct:publisher"
-     href="github.com/g0v/react-zh-stroker">
+     href="//github.com/g0v/react-zh-stroker">
     <span property="dct:title">caasi Huang</span></a>
   has waived all copyright and related or neighboring rights to
   <span property="dct:title">react-zh-stroker</span>.
