@@ -1,31 +1,31 @@
-# seed -- the seed for Jade, Stylus, LiveScript and React apps
+# react-zh-stroker
 
-This project is an application skeleton for anyone who loves Jade, Stylus, LiveScript and React.
+A stroke drawing React component for zh-stroke-data.
 
-## Usage
+## Develop
 
 ```bash
 npm install
 npm start
 ```
 
-## Layout
+## Old Repository
 
-```
-# all of the sources
-src/
-  app/
-    *.ls
-    *.styl
-  index.ls
-  index.jade
+Please check [g0v/zh-stroke-data](g0v/zh-stroke-data) for more information.
 
-# all of the files which are created and watched by gulp
-# so you can host them with gh-pages
-dist/
-  **/*.css
-  **/*.js
-  index.js
-bundle.js
-index.html
-```
+## License
+
+<p xmlns:dct="http://purl.org/dc/terms/">
+  <a rel="license"
+     href="http://creativecommons.org/publicdomain/zero/1.0/">
+    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+  </a>
+  <br />
+  To the extent possible under law,
+  <a rel="dct:publisher"
+     href="github.com/g0v/react-zh-stroker">
+    <span property="dct:title">caasi Huang</span></a>
+  has waived all copyright and related or neighboring rights to
+  <span property="dct:title">react-zh-stroker</span>.
+</p>
+

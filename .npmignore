@@ -1,0 +1,7 @@
+json/
+node_modules/
+src/
+index.html
+gulpfile.ls
+npm-debug.log
+*.swp
