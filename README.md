@@ -1,6 +1,6 @@
 # react-zh-stroker
 
-A [stroke drawing](//g0v.github.io/zh-stroke-data/) React component for [zh-stroke-data](//github.com/g0v/zh-stroke-data).
+A [stroke drawing](//g0v.github.io/react-zh-stroker/) React component for [zh-stroke-data](//github.com/g0v/zh-stroke-data).
 
 ## Develop
 
