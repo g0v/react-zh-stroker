@@ -11,7 +11,7 @@ npm start
 
 ## Old Repository
 
-Please check [g0v/zh-stroke-data](g0v/zh-stroke-data) for more information.
+Please check [g0v/zh-stroke-data](//github.com/g0v/zh-stroke-data) for more information.
 
 ## License
 
