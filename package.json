@@ -1,6 +1,6 @@
 {
   "name": "react-zh-stroker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A stroke drawing React component for zh-stroke-data",
   "main": "./dist/zhStroker/",
   "scripts": {
@@ -8,7 +8,12 @@
     "prepublish": "gulp compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["react-component", "zh", "chinese", "stroke"],
+  "keywords": [
+    "react-component",
+    "zh",
+    "chinese",
+    "stroke"
+  ],
   "author": "caasi Huang",
   "license": "CC0",
   "devDependencies": {
