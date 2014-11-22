@@ -11,9 +11,12 @@ log = -> try console.log it
 # main
 data <- $.getJSON './json/840c.json'
 data = computeLength data
-colors = <[#1234ef #000000 #000000 #000000 #000000]>
-progress = 0
 
+# Material UI colors
+# http://www.google.com/design/spec/style/color.html
+colors = <[#f44336 #e91e63 #9c27b0 #3f51b5 #009688]>
+
+progress = 0
 onEnter = -> log 'enter'
 onLeave = -> log 'leave'
 onEnterStroke = -> log 'enter stroke'

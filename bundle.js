@@ -45,7 +45,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "617bc04b39b36ea4f9db";
+/******/ 	var hotCurrentHash = "027bed889fd4dc020aef";
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = [];
 /******/ 	
@@ -536,7 +536,7 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__resourceQuery) {var io = __webpack_require__(8);
+	/* WEBPACK VAR INJECTION */(function(__resourceQuery) {var io = __webpack_require__(7);
 	var scriptElements = document.getElementsByTagName("script");
 	io = io.connect(true ?
 		__resourceQuery.substr(1) :
@@ -608,7 +608,7 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "index.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "index.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	(function(){
 	  var $, React, Word, computeLength, div, log;
@@ -623,8 +623,9 @@
 	    } catch (e$) {}
 	  };
 	  $.getJSON('./json/840c.json', function(data){
-	    var progress, onEnter, onLeave, onEnterStroke, onLeaveStroke, App, app;
+	    var colors, progress, onEnter, onLeave, onEnterStroke, onLeaveStroke, App, app;
 	    data = computeLength(data);
+	    colors = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#009688'];
 	    progress = 0;
 	    onEnter = function(){
 	      return log('enter');
@@ -661,6 +662,7 @@
 	        dim = 400;
 	        return div({}, Word({
 	          data: this.props.data,
+	          color: colors[0],
 	          progress: this.state.progress,
 	          onEnter: onEnter,
 	          onLeave: onLeave,
@@ -668,12 +670,13 @@
 	          onLeaveStroke: onLeaveStroke
 	        }), (function(){
 	          var i$, results$ = [];
-	          for (i$ = 0; i$ < 4; ++i$) {
+	          for (i$ = 1; i$ <= 4; ++i$) {
 	            i = i$;
 	            dim /= 2;
 	            results$.push(Word({
 	              key: i,
 	              data: this.props.data,
+	              color: colors[i],
 	              progress: this.state.progress,
 	              width: dim,
 	              height: dim
@@ -1136,6 +1139,13 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(15);
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	var callable, byObserver;
@@ -1202,13 +1212,6 @@
 	}());
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(15);
-
 
 /***/ },
 /* 9 */
@@ -10417,7 +10420,7 @@
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "Track.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Track.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "Track.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Track.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	(function(){
 	  var React, ref$, g, path, Track;
@@ -10440,6 +10443,7 @@
 	        },
 	        x: 0,
 	        y: 0,
+	        color: 'black',
 	        progress: Infinity
 	      };
 	    },
@@ -10464,7 +10468,7 @@
 	      }, path({
 	        d: valid ? track : 'M0 0 L0 0',
 	        fill: 'transparent',
-	        stroke: '#000',
+	        stroke: this.props.color,
 	        strokeWidth: valid ? 4 * bgn.size || 250 : 0,
 	        strokeLinecap: 'round'
 	      }));
@@ -10477,7 +10481,7 @@
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "Stroke.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Stroke.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "Stroke.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Stroke.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	(function(){
 	  var React, Track, ref$, g, defs, path, Stroke;
@@ -10495,6 +10499,7 @@
 	        },
 	        x: 0,
 	        y: 0,
+	        color: 'black',
 	        progress: Infinity,
 	        onEnterStroke: function(){},
 	        onLeaveStroke: function(){}
@@ -10571,13 +10576,14 @@
 	              bgn: bgn,
 	              end: end
 	            },
+	            color: this.props.color,
 	            progress: progress
 	          });
 	          progress -= bgn.length;
 	          results$.push(comp);
 	        }
 	        return results$;
-	      }()));
+	      }.call(this)));
 	    }
 	  });
 	}).call(this);
@@ -10587,7 +10593,7 @@
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "Word.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Word.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "Word.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Word.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	(function(){
 	  var React, Stroke, ref$, svg, g, Word;
@@ -10606,6 +10612,7 @@
 	        y: 0,
 	        width: 410,
 	        height: 410,
+	        color: 'black',
 	        progress: Infinity,
 	        onEnter: function(){},
 	        onLeave: function(){},
@@ -10649,6 +10656,7 @@
 	          comp = Stroke({
 	            key: i,
 	            data: stroke,
+	            color: this.props.color,
 	            progress: progress,
 	            onEnterStroke: this.props.onEnterStroke,
 	            onLeaveStroke: this.props.onLeaveStroke
@@ -20191,9 +20199,9 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 
-	var traverseAllChildren = __webpack_require__(62);
+	var traverseAllChildren = __webpack_require__(59);
 	var warning = __webpack_require__(55);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -20345,12 +20353,12 @@
 	"use strict";
 
 	var ReactElement = __webpack_require__(30);
-	var ReactOwner = __webpack_require__(58);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactOwner = __webpack_require__(60);
+	var ReactUpdates = __webpack_require__(61);
 
 	var assign = __webpack_require__(43);
 	var invariant = __webpack_require__(57);
-	var keyMirror = __webpack_require__(60);
+	var keyMirror = __webpack_require__(62);
 
 	/**
 	 * Every React component is in one of these life cycles.
@@ -20777,7 +20785,7 @@
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "ReactCompositeComponent.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ReactCompositeComponent.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	/* WEBPACK VAR INJECTION */(function(process) {var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "ReactCompositeComponent.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ReactCompositeComponent.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	/**
 	 * Copyright 2013-2014, Facebook, Inc.
@@ -20800,17 +20808,17 @@
 	var ReactEmptyComponent = __webpack_require__(63);
 	var ReactErrorUtils = __webpack_require__(64);
 	var ReactLegacyElement = __webpack_require__(36);
-	var ReactOwner = __webpack_require__(58);
+	var ReactOwner = __webpack_require__(60);
 	var ReactPerf = __webpack_require__(39);
 	var ReactPropTransferer = __webpack_require__(65);
 	var ReactPropTypeLocations = __webpack_require__(66);
 	var ReactPropTypeLocationNames = __webpack_require__(67);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 
 	var assign = __webpack_require__(43);
 	var instantiateReactComponent = __webpack_require__(68);
 	var invariant = __webpack_require__(57);
-	var keyMirror = __webpack_require__(60);
+	var keyMirror = __webpack_require__(62);
 	var keyOf = __webpack_require__(69);
 	var monitorCodeUse = __webpack_require__(70);
 	var mapObject = __webpack_require__(71);
@@ -25463,7 +25471,7 @@
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "ReactPropTypes.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ReactPropTypes.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "ReactPropTypes.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ReactPropTypes.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	/**
 	 * Copyright 2013-2014, Facebook, Inc.
@@ -28125,7 +28133,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(60);
+	var keyMirror = __webpack_require__(62);
 
 	var PropagationPhases = keyMirror({bubbled: null, captured: null});
 
@@ -28248,7 +28256,312 @@
 /* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "ReactOwner.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ReactOwner.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(7); nextTick(__HUA.updateMountedInstances); }); }
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule PooledClass
+	 */
+
+	"use strict";
+
+	var invariant = __webpack_require__(57);
+
+	/**
+	 * Static poolers. Several custom versions for each potential number of
+	 * arguments. A completely generic pooler is easy to implement, but would
+	 * require accessing the `arguments` object. In each of these, `this` refers to
+	 * the Class itself, not an instance. If any others are needed, simply add them
+	 * here, or in their own files.
+	 */
+	var oneArgumentPooler = function(copyFieldsFrom) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, copyFieldsFrom);
+	    return instance;
+	  } else {
+	    return new Klass(copyFieldsFrom);
+	  }
+	};
+
+	var twoArgumentPooler = function(a1, a2) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, a1, a2);
+	    return instance;
+	  } else {
+	    return new Klass(a1, a2);
+	  }
+	};
+
+	var threeArgumentPooler = function(a1, a2, a3) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, a1, a2, a3);
+	    return instance;
+	  } else {
+	    return new Klass(a1, a2, a3);
+	  }
+	};
+
+	var fiveArgumentPooler = function(a1, a2, a3, a4, a5) {
+	  var Klass = this;
+	  if (Klass.instancePool.length) {
+	    var instance = Klass.instancePool.pop();
+	    Klass.call(instance, a1, a2, a3, a4, a5);
+	    return instance;
+	  } else {
+	    return new Klass(a1, a2, a3, a4, a5);
+	  }
+	};
+
+	var standardReleaser = function(instance) {
+	  var Klass = this;
+	  ("production" !== process.env.NODE_ENV ? invariant(
+	    instance instanceof Klass,
+	    'Trying to release an instance into a pool of a different type.'
+	  ) : invariant(instance instanceof Klass));
+	  if (instance.destructor) {
+	    instance.destructor();
+	  }
+	  if (Klass.instancePool.length < Klass.poolSize) {
+	    Klass.instancePool.push(instance);
+	  }
+	};
+
+	var DEFAULT_POOL_SIZE = 10;
+	var DEFAULT_POOLER = oneArgumentPooler;
+
+	/**
+	 * Augments `CopyConstructor` to be a poolable class, augmenting only the class
+	 * itself (statically) not adding any prototypical fields. Any CopyConstructor
+	 * you give this may have a `poolSize` property, and will look for a
+	 * prototypical `destructor` on instances (optional).
+	 *
+	 * @param {Function} CopyConstructor Constructor that can be used to reset.
+	 * @param {Function} pooler Customizable pooler.
+	 */
+	var addPoolingTo = function(CopyConstructor, pooler) {
+	  var NewKlass = CopyConstructor;
+	  NewKlass.instancePool = [];
+	  NewKlass.getPooled = pooler || DEFAULT_POOLER;
+	  if (!NewKlass.poolSize) {
+	    NewKlass.poolSize = DEFAULT_POOL_SIZE;
+	  }
+	  NewKlass.release = standardReleaser;
+	  return NewKlass;
+	};
+
+	var PooledClass = {
+	  addPoolingTo: addPoolingTo,
+	  oneArgumentPooler: oneArgumentPooler,
+	  twoArgumentPooler: twoArgumentPooler,
+	  threeArgumentPooler: threeArgumentPooler,
+	  fiveArgumentPooler: fiveArgumentPooler
+	};
+
+	module.exports = PooledClass;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule traverseAllChildren
+	 */
+
+	"use strict";
+
+	var ReactElement = __webpack_require__(30);
+	var ReactInstanceHandles = __webpack_require__(35);
+
+	var invariant = __webpack_require__(57);
+
+	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
+	var SUBSEPARATOR = ':';
+
+	/**
+	 * TODO: Test that:
+	 * 1. `mapChildren` transforms strings and numbers into `ReactTextComponent`.
+	 * 2. it('should fail when supplied duplicate key', function() {
+	 * 3. That a single child and an array with one item have the same key pattern.
+	 * });
+	 */
+
+	var userProvidedKeyEscaperLookup = {
+	  '=': '=0',
+	  '.': '=1',
+	  ':': '=2'
+	};
+
+	var userProvidedKeyEscapeRegex = /[=.:]/g;
+
+	function userProvidedKeyEscaper(match) {
+	  return userProvidedKeyEscaperLookup[match];
+	}
+
+	/**
+	 * Generate a key string that identifies a component within a set.
+	 *
+	 * @param {*} component A component that could contain a manual key.
+	 * @param {number} index Index that is used if a manual key is not provided.
+	 * @return {string}
+	 */
+	function getComponentKey(component, index) {
+	  if (component && component.key != null) {
+	    // Explicit key
+	    return wrapUserProvidedKey(component.key);
+	  }
+	  // Implicit key determined by the index in the set
+	  return index.toString(36);
+	}
+
+	/**
+	 * Escape a component key so that it is safe to use in a reactid.
+	 *
+	 * @param {*} key Component key to be escaped.
+	 * @return {string} An escaped string.
+	 */
+	function escapeUserProvidedKey(text) {
+	  return ('' + text).replace(
+	    userProvidedKeyEscapeRegex,
+	    userProvidedKeyEscaper
+	  );
+	}
+
+	/**
+	 * Wrap a `key` value explicitly provided by the user to distinguish it from
+	 * implicitly-generated keys generated by a component's index in its parent.
+	 *
+	 * @param {string} key Value of a user-provided `key` attribute
+	 * @return {string}
+	 */
+	function wrapUserProvidedKey(key) {
+	  return '$' + escapeUserProvidedKey(key);
+	}
+
+	/**
+	 * @param {?*} children Children tree container.
+	 * @param {!string} nameSoFar Name of the key path so far.
+	 * @param {!number} indexSoFar Number of children encountered until this point.
+	 * @param {!function} callback Callback to invoke with each child found.
+	 * @param {?*} traverseContext Used to pass information throughout the traversal
+	 * process.
+	 * @return {!number} The number of children in this subtree.
+	 */
+	var traverseAllChildrenImpl =
+	  function(children, nameSoFar, indexSoFar, callback, traverseContext) {
+	    var nextName, nextIndex;
+	    var subtreeCount = 0;  // Count of children found in the current subtree.
+	    if (Array.isArray(children)) {
+	      for (var i = 0; i < children.length; i++) {
+	        var child = children[i];
+	        nextName = (
+	          nameSoFar +
+	          (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
+	          getComponentKey(child, i)
+	        );
+	        nextIndex = indexSoFar + subtreeCount;
+	        subtreeCount += traverseAllChildrenImpl(
+	          child,
+	          nextName,
+	          nextIndex,
+	          callback,
+	          traverseContext
+	        );
+	      }
+	    } else {
+	      var type = typeof children;
+	      var isOnlyChild = nameSoFar === '';
+	      // If it's the only child, treat the name as if it was wrapped in an array
+	      // so that it's consistent if the number of children grows
+	      var storageName =
+	        isOnlyChild ? SEPARATOR + getComponentKey(children, 0) : nameSoFar;
+	      if (children == null || type === 'boolean') {
+	        // All of the above are perceived as null.
+	        callback(traverseContext, null, storageName, indexSoFar);
+	        subtreeCount = 1;
+	      } else if (type === 'string' || type === 'number' ||
+	                 ReactElement.isValidElement(children)) {
+	        callback(traverseContext, children, storageName, indexSoFar);
+	        subtreeCount = 1;
+	      } else if (type === 'object') {
+	        ("production" !== process.env.NODE_ENV ? invariant(
+	          !children || children.nodeType !== 1,
+	          'traverseAllChildren(...): Encountered an invalid child; DOM ' +
+	          'elements are not valid children of React components.'
+	        ) : invariant(!children || children.nodeType !== 1));
+	        for (var key in children) {
+	          if (children.hasOwnProperty(key)) {
+	            nextName = (
+	              nameSoFar + (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
+	              wrapUserProvidedKey(key) + SUBSEPARATOR +
+	              getComponentKey(children[key], 0)
+	            );
+	            nextIndex = indexSoFar + subtreeCount;
+	            subtreeCount += traverseAllChildrenImpl(
+	              children[key],
+	              nextName,
+	              nextIndex,
+	              callback,
+	              traverseContext
+	            );
+	          }
+	        }
+	      }
+	    }
+	    return subtreeCount;
+	  };
+
+	/**
+	 * Traverses children that are typically specified as `props.children`, but
+	 * might also be specified through attributes:
+	 *
+	 * - `traverseAllChildren(this.props.children, ...)`
+	 * - `traverseAllChildren(this.props.leftPanelChildren, ...)`
+	 *
+	 * The `traverseContext` is an optional argument that is passed through the
+	 * entire traversal. It can be used to store accumulations or anything else that
+	 * the callback might find relevant.
+	 *
+	 * @param {?*} children Children tree object.
+	 * @param {!function} callback To invoke upon traversing each child.
+	 * @param {?*} traverseContext Context for traversal.
+	 * @return {!number} The number of children in this subtree.
+	 */
+	function traverseAllChildren(children, callback, traverseContext) {
+	  if (children == null) {
+	    return 0;
+	  }
+
+	  return traverseAllChildrenImpl(children, '', 0, callback, traverseContext);
+	}
+
+	module.exports = traverseAllChildren;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {var __HUA = (function () { var React = __webpack_require__(9); var getHotUpdateAPI = __webpack_require__(4); return getHotUpdateAPI(React, "ReactOwner.js", module.id); })(); if (true) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ReactOwner.js" + ": " + err.message); } }); module.hot.dispose(function () { var nextTick = __webpack_require__(8); nextTick(__HUA.updateMountedInstances); }); }
 
 	/**
 	 * Copyright 2013-2014, Facebook, Inc.
@@ -28406,7 +28719,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ },
-/* 59 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28423,7 +28736,7 @@
 	"use strict";
 
 	var CallbackQueue = __webpack_require__(111);
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 	var ReactCurrentOwner = __webpack_require__(29);
 	var ReactPerf = __webpack_require__(39);
 	var Transaction = __webpack_require__(112);
@@ -28699,7 +29012,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ },
-/* 60 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28753,311 +29066,6 @@
 	};
 
 	module.exports = keyMirror;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule PooledClass
-	 */
-
-	"use strict";
-
-	var invariant = __webpack_require__(57);
-
-	/**
-	 * Static poolers. Several custom versions for each potential number of
-	 * arguments. A completely generic pooler is easy to implement, but would
-	 * require accessing the `arguments` object. In each of these, `this` refers to
-	 * the Class itself, not an instance. If any others are needed, simply add them
-	 * here, or in their own files.
-	 */
-	var oneArgumentPooler = function(copyFieldsFrom) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, copyFieldsFrom);
-	    return instance;
-	  } else {
-	    return new Klass(copyFieldsFrom);
-	  }
-	};
-
-	var twoArgumentPooler = function(a1, a2) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2);
-	  }
-	};
-
-	var threeArgumentPooler = function(a1, a2, a3) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2, a3);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2, a3);
-	  }
-	};
-
-	var fiveArgumentPooler = function(a1, a2, a3, a4, a5) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2, a3, a4, a5);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2, a3, a4, a5);
-	  }
-	};
-
-	var standardReleaser = function(instance) {
-	  var Klass = this;
-	  ("production" !== process.env.NODE_ENV ? invariant(
-	    instance instanceof Klass,
-	    'Trying to release an instance into a pool of a different type.'
-	  ) : invariant(instance instanceof Klass));
-	  if (instance.destructor) {
-	    instance.destructor();
-	  }
-	  if (Klass.instancePool.length < Klass.poolSize) {
-	    Klass.instancePool.push(instance);
-	  }
-	};
-
-	var DEFAULT_POOL_SIZE = 10;
-	var DEFAULT_POOLER = oneArgumentPooler;
-
-	/**
-	 * Augments `CopyConstructor` to be a poolable class, augmenting only the class
-	 * itself (statically) not adding any prototypical fields. Any CopyConstructor
-	 * you give this may have a `poolSize` property, and will look for a
-	 * prototypical `destructor` on instances (optional).
-	 *
-	 * @param {Function} CopyConstructor Constructor that can be used to reset.
-	 * @param {Function} pooler Customizable pooler.
-	 */
-	var addPoolingTo = function(CopyConstructor, pooler) {
-	  var NewKlass = CopyConstructor;
-	  NewKlass.instancePool = [];
-	  NewKlass.getPooled = pooler || DEFAULT_POOLER;
-	  if (!NewKlass.poolSize) {
-	    NewKlass.poolSize = DEFAULT_POOL_SIZE;
-	  }
-	  NewKlass.release = standardReleaser;
-	  return NewKlass;
-	};
-
-	var PooledClass = {
-	  addPoolingTo: addPoolingTo,
-	  oneArgumentPooler: oneArgumentPooler,
-	  twoArgumentPooler: twoArgumentPooler,
-	  threeArgumentPooler: threeArgumentPooler,
-	  fiveArgumentPooler: fiveArgumentPooler
-	};
-
-	module.exports = PooledClass;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule traverseAllChildren
-	 */
-
-	"use strict";
-
-	var ReactElement = __webpack_require__(30);
-	var ReactInstanceHandles = __webpack_require__(35);
-
-	var invariant = __webpack_require__(57);
-
-	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
-	var SUBSEPARATOR = ':';
-
-	/**
-	 * TODO: Test that:
-	 * 1. `mapChildren` transforms strings and numbers into `ReactTextComponent`.
-	 * 2. it('should fail when supplied duplicate key', function() {
-	 * 3. That a single child and an array with one item have the same key pattern.
-	 * });
-	 */
-
-	var userProvidedKeyEscaperLookup = {
-	  '=': '=0',
-	  '.': '=1',
-	  ':': '=2'
-	};
-
-	var userProvidedKeyEscapeRegex = /[=.:]/g;
-
-	function userProvidedKeyEscaper(match) {
-	  return userProvidedKeyEscaperLookup[match];
-	}
-
-	/**
-	 * Generate a key string that identifies a component within a set.
-	 *
-	 * @param {*} component A component that could contain a manual key.
-	 * @param {number} index Index that is used if a manual key is not provided.
-	 * @return {string}
-	 */
-	function getComponentKey(component, index) {
-	  if (component && component.key != null) {
-	    // Explicit key
-	    return wrapUserProvidedKey(component.key);
-	  }
-	  // Implicit key determined by the index in the set
-	  return index.toString(36);
-	}
-
-	/**
-	 * Escape a component key so that it is safe to use in a reactid.
-	 *
-	 * @param {*} key Component key to be escaped.
-	 * @return {string} An escaped string.
-	 */
-	function escapeUserProvidedKey(text) {
-	  return ('' + text).replace(
-	    userProvidedKeyEscapeRegex,
-	    userProvidedKeyEscaper
-	  );
-	}
-
-	/**
-	 * Wrap a `key` value explicitly provided by the user to distinguish it from
-	 * implicitly-generated keys generated by a component's index in its parent.
-	 *
-	 * @param {string} key Value of a user-provided `key` attribute
-	 * @return {string}
-	 */
-	function wrapUserProvidedKey(key) {
-	  return '$' + escapeUserProvidedKey(key);
-	}
-
-	/**
-	 * @param {?*} children Children tree container.
-	 * @param {!string} nameSoFar Name of the key path so far.
-	 * @param {!number} indexSoFar Number of children encountered until this point.
-	 * @param {!function} callback Callback to invoke with each child found.
-	 * @param {?*} traverseContext Used to pass information throughout the traversal
-	 * process.
-	 * @return {!number} The number of children in this subtree.
-	 */
-	var traverseAllChildrenImpl =
-	  function(children, nameSoFar, indexSoFar, callback, traverseContext) {
-	    var nextName, nextIndex;
-	    var subtreeCount = 0;  // Count of children found in the current subtree.
-	    if (Array.isArray(children)) {
-	      for (var i = 0; i < children.length; i++) {
-	        var child = children[i];
-	        nextName = (
-	          nameSoFar +
-	          (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
-	          getComponentKey(child, i)
-	        );
-	        nextIndex = indexSoFar + subtreeCount;
-	        subtreeCount += traverseAllChildrenImpl(
-	          child,
-	          nextName,
-	          nextIndex,
-	          callback,
-	          traverseContext
-	        );
-	      }
-	    } else {
-	      var type = typeof children;
-	      var isOnlyChild = nameSoFar === '';
-	      // If it's the only child, treat the name as if it was wrapped in an array
-	      // so that it's consistent if the number of children grows
-	      var storageName =
-	        isOnlyChild ? SEPARATOR + getComponentKey(children, 0) : nameSoFar;
-	      if (children == null || type === 'boolean') {
-	        // All of the above are perceived as null.
-	        callback(traverseContext, null, storageName, indexSoFar);
-	        subtreeCount = 1;
-	      } else if (type === 'string' || type === 'number' ||
-	                 ReactElement.isValidElement(children)) {
-	        callback(traverseContext, children, storageName, indexSoFar);
-	        subtreeCount = 1;
-	      } else if (type === 'object') {
-	        ("production" !== process.env.NODE_ENV ? invariant(
-	          !children || children.nodeType !== 1,
-	          'traverseAllChildren(...): Encountered an invalid child; DOM ' +
-	          'elements are not valid children of React components.'
-	        ) : invariant(!children || children.nodeType !== 1));
-	        for (var key in children) {
-	          if (children.hasOwnProperty(key)) {
-	            nextName = (
-	              nameSoFar + (nameSoFar ? SUBSEPARATOR : SEPARATOR) +
-	              wrapUserProvidedKey(key) + SUBSEPARATOR +
-	              getComponentKey(children[key], 0)
-	            );
-	            nextIndex = indexSoFar + subtreeCount;
-	            subtreeCount += traverseAllChildrenImpl(
-	              children[key],
-	              nextName,
-	              nextIndex,
-	              callback,
-	              traverseContext
-	            );
-	          }
-	        }
-	      }
-	    }
-	    return subtreeCount;
-	  };
-
-	/**
-	 * Traverses children that are typically specified as `props.children`, but
-	 * might also be specified through attributes:
-	 *
-	 * - `traverseAllChildren(this.props.children, ...)`
-	 * - `traverseAllChildren(this.props.leftPanelChildren, ...)`
-	 *
-	 * The `traverseContext` is an optional argument that is passed through the
-	 * entire traversal. It can be used to store accumulations or anything else that
-	 * the callback might find relevant.
-	 *
-	 * @param {?*} children Children tree object.
-	 * @param {!function} callback To invoke upon traversing each child.
-	 * @param {?*} traverseContext Context for traversal.
-	 * @return {!number} The number of children in this subtree.
-	 */
-	function traverseAllChildren(children, callback, traverseContext) {
-	  if (children == null) {
-	    return 0;
-	  }
-
-	  return traverseAllChildrenImpl(children, '', 0, callback, traverseContext);
-	}
-
-	module.exports = traverseAllChildren;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
@@ -29364,7 +29372,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(60);
+	var keyMirror = __webpack_require__(62);
 
 	var ReactPropTypeLocations = keyMirror({
 	  prop: null,
@@ -30558,7 +30566,7 @@
 	var EventPluginHub = __webpack_require__(119);
 	var EventPropagators = __webpack_require__(123);
 	var ExecutionEnvironment = __webpack_require__(46);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 	var SyntheticEvent = __webpack_require__(125);
 
 	var isEventSupported = __webpack_require__(76);
@@ -31797,7 +31805,7 @@
 
 	"use strict";
 
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 	var Transaction = __webpack_require__(112);
 
 	var assign = __webpack_require__(43);
@@ -31880,7 +31888,7 @@
 	var ReactElement = __webpack_require__(30);
 	var ReactDOM = __webpack_require__(32);
 
-	var keyMirror = __webpack_require__(60);
+	var keyMirror = __webpack_require__(62);
 
 	// Store a reference to the <button> `ReactDOMComponent`. TODO: use string
 	var button = ReactElement.createFactory(ReactDOM.button.type);
@@ -32057,7 +32065,7 @@
 	var ReactElement = __webpack_require__(30);
 	var ReactDOM = __webpack_require__(32);
 	var ReactMount = __webpack_require__(37);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 
 	var assign = __webpack_require__(43);
 	var invariant = __webpack_require__(57);
@@ -32292,7 +32300,7 @@
 	var ReactCompositeComponent = __webpack_require__(27);
 	var ReactElement = __webpack_require__(30);
 	var ReactDOM = __webpack_require__(32);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 
 	var assign = __webpack_require__(43);
 
@@ -32481,7 +32489,7 @@
 	var ReactCompositeComponent = __webpack_require__(27);
 	var ReactElement = __webpack_require__(30);
 	var ReactDOM = __webpack_require__(32);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 
 	var assign = __webpack_require__(43);
 	var invariant = __webpack_require__(57);
@@ -32621,10 +32629,10 @@
 
 	var EventListener = __webpack_require__(137);
 	var ExecutionEnvironment = __webpack_require__(46);
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 	var ReactInstanceHandles = __webpack_require__(35);
 	var ReactMount = __webpack_require__(37);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 
 	var assign = __webpack_require__(43);
 	var getEventTarget = __webpack_require__(138);
@@ -32815,7 +32823,7 @@
 	var ReactNativeComponent = __webpack_require__(114);
 	var ReactPerf = __webpack_require__(39);
 	var ReactRootIndex = __webpack_require__(102);
-	var ReactUpdates = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(61);
 
 	var ReactInjection = {
 	  Component: ReactComponent.injection,
@@ -34061,7 +34069,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(60);
+	var keyMirror = __webpack_require__(62);
 
 	/**
 	 * When a component's children are updated, a series of update configuration
@@ -34100,7 +34108,7 @@
 
 	var ReactTextComponent = __webpack_require__(42);
 
-	var traverseAllChildren = __webpack_require__(62);
+	var traverseAllChildren = __webpack_require__(59);
 	var warning = __webpack_require__(55);
 
 	/**
@@ -34261,7 +34269,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 	var CallbackQueue = __webpack_require__(111);
 	var ReactPutListenerQueue = __webpack_require__(154);
 	var Transaction = __webpack_require__(112);
@@ -34404,7 +34412,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 
 	var assign = __webpack_require__(43);
 	var invariant = __webpack_require__(57);
@@ -35994,7 +36002,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 
 	var assign = __webpack_require__(43);
 	var emptyFunction = __webpack_require__(107);
@@ -36438,7 +36446,7 @@
 	var SyntheticUIEvent = __webpack_require__(147);
 	var ViewportMetrics = __webpack_require__(122);
 
-	var getEventModifierState = __webpack_require__(166);
+	var getEventModifierState = __webpack_require__(167);
 
 	/**
 	 * @interface MouseEvent
@@ -36525,7 +36533,7 @@
 	"use strict";
 
 	var CSSPropertyOperations = __webpack_require__(73);
-	var DOMChildrenOperations = __webpack_require__(167);
+	var DOMChildrenOperations = __webpack_require__(166);
 	var DOMPropertyOperations = __webpack_require__(23);
 	var ReactMount = __webpack_require__(37);
 	var ReactPerf = __webpack_require__(39);
@@ -36712,7 +36720,7 @@
 	"use strict";
 
 	var CallbackQueue = __webpack_require__(111);
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 	var ReactBrowserEventEmitter = __webpack_require__(75);
 	var ReactInputSelection = __webpack_require__(127);
 	var ReactPutListenerQueue = __webpack_require__(154);
@@ -37566,7 +37574,7 @@
 
 	var getEventCharCode = __webpack_require__(149);
 	var getEventKey = __webpack_require__(168);
-	var getEventModifierState = __webpack_require__(166);
+	var getEventModifierState = __webpack_require__(167);
 
 	/**
 	 * @interface KeyboardEvent
@@ -37698,7 +37706,7 @@
 
 	var SyntheticUIEvent = __webpack_require__(147);
 
-	var getEventModifierState = __webpack_require__(166);
+	var getEventModifierState = __webpack_require__(167);
 
 	/**
 	 * @interface TouchEvent
@@ -38243,7 +38251,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(61);
+	var PooledClass = __webpack_require__(58);
 	var ReactBrowserEventEmitter = __webpack_require__(75);
 
 	var assign = __webpack_require__(43);
@@ -41047,57 +41055,6 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013 Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule getEventModifierState
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	/**
-	 * Translation from modifier key to the associated property in the event.
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
-	 */
-
-	var modifierKeyToProp = {
-	  'Alt': 'altKey',
-	  'Control': 'ctrlKey',
-	  'Meta': 'metaKey',
-	  'Shift': 'shiftKey'
-	};
-
-	// IE8 does not implement getModifierState so we simply map it to the only
-	// modifier keys exposed by the event itself, does not support Lock-keys.
-	// Currently, all major browsers except Chrome seems to support Lock-keys.
-	function modifierStateGetter(keyArg) {
-	  /*jshint validthis:true */
-	  var syntheticEvent = this;
-	  var nativeEvent = syntheticEvent.nativeEvent;
-	  if (nativeEvent.getModifierState) {
-	    return nativeEvent.getModifierState(keyArg);
-	  }
-	  var keyProp = modifierKeyToProp[keyArg];
-	  return keyProp ? !!nativeEvent[keyProp] : false;
-	}
-
-	function getEventModifierState(nativeEvent) {
-	  return modifierStateGetter;
-	}
-
-	module.exports = getEventModifierState;
-
-
-/***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
@@ -41271,6 +41228,57 @@
 	module.exports = DOMChildrenOperations;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013 Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule getEventModifierState
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	/**
+	 * Translation from modifier key to the associated property in the event.
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
+	 */
+
+	var modifierKeyToProp = {
+	  'Alt': 'altKey',
+	  'Control': 'ctrlKey',
+	  'Meta': 'metaKey',
+	  'Shift': 'shiftKey'
+	};
+
+	// IE8 does not implement getModifierState so we simply map it to the only
+	// modifier keys exposed by the event itself, does not support Lock-keys.
+	// Currently, all major browsers except Chrome seems to support Lock-keys.
+	function modifierStateGetter(keyArg) {
+	  /*jshint validthis:true */
+	  var syntheticEvent = this;
+	  var nativeEvent = syntheticEvent.nativeEvent;
+	  if (nativeEvent.getModifierState) {
+	    return nativeEvent.getModifierState(keyArg);
+	  }
+	  var keyProp = modifierKeyToProp[keyArg];
+	  return keyProp ? !!nativeEvent[keyProp] : false;
+	}
+
+	function getEventModifierState(nativeEvent) {
+	  return modifierStateGetter;
+	}
+
+	module.exports = getEventModifierState;
+
 
 /***/ },
 /* 168 */
@@ -41937,7 +41945,7 @@
 	module.exports = Readable;
 
 	/*<replacement>*/
-	var isArray = __webpack_require__(188);
+	var isArray = __webpack_require__(189);
 	/*</replacement>*/
 
 
@@ -43734,7 +43742,7 @@
 
 	var ExecutionEnvironment = __webpack_require__(46);
 
-	var createArrayFrom = __webpack_require__(189);
+	var createArrayFrom = __webpack_require__(188);
 	var getMarkupWrap = __webpack_require__(186);
 	var invariant = __webpack_require__(57);
 
@@ -43937,15 +43945,6 @@
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = Array.isArray || function (arr) {
-	  return Object.prototype.toString.call(arr) == '[object Array]';
-	};
-
-
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
@@ -44030,6 +44029,15 @@
 	}
 
 	module.exports = createArrayFrom;
+
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = Array.isArray || function (arr) {
+	  return Object.prototype.toString.call(arr) == '[object Array]';
+	};
 
 
 /***/ },

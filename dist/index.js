@@ -13,7 +13,7 @@
   $.getJSON('./json/840c.json', function(data){
     var colors, progress, onEnter, onLeave, onEnterStroke, onLeaveStroke, App, app;
     data = computeLength(data);
-    colors = ['#1234ef', '#000000', '#000000', '#000000', '#000000'];
+    colors = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#009688'];
     progress = 0;
     onEnter = function(){
       return log('enter');
