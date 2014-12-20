@@ -39,7 +39,7 @@ gulp.task \webpack <[compile]> ->
     entry:
       * "webpack-dev-server/client?http://#host:#port"
       * 'webpack/hot/dev-server'
-      * './dist'
+      * './dist/main.js'
     output:
       path: __dirname # required for webpack-dev-server
       filename: 'bundle.js'

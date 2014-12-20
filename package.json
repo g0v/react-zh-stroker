@@ -1,8 +1,8 @@
 {
   "name": "react-zh-stroker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A stroke drawing React component for zh-stroke-data",
-  "main": "./dist/zhStroker/",
+  "main": "./dist/",
   "scripts": {
     "start": "gulp",
     "prepublish": "gulp compile",
