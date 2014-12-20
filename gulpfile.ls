@@ -15,7 +15,7 @@ require! {
 
 options =
   src:   path.resolve './src'
-  dist:  path.resolve './dist'
+  dist:  path.resolve '.'
   build: path.resolve '.'
 
 gulp.task \js ->
@@ -39,7 +39,7 @@ gulp.task \webpack <[compile]> ->
     entry:
       * "webpack-dev-server/client?http://#host:#port"
       * 'webpack/hot/dev-server'
-      * './dist/main.js'
+      * './main.js'
     output:
       path: __dirname # required for webpack-dev-server
       filename: 'bundle.js'
@@ -52,7 +52,6 @@ gulp.task \webpack <[compile]> ->
         * test: /\.css$/ loader: \style!css
         * test: /\.js$/  loader: \react-hot
         ...
-  webpack config
   server = new WebpackDevServer do
     webpack config
     publicPath: config.output.publicPath
