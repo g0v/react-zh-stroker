@@ -22,9 +22,9 @@ Word = module.exports = React.createClass do
   componentWillReceiveProps: (next) ->
     { length } = @props.data
     if @props.progress <= 0 and next.progress > 0
-      @props.onEnter!
+      @props.onEnter @props, next
     if @props.progress < length and next.progress >= length
-      @props.onLeave!
+      @props.onLeave @props, next
   render: ->
     { length, word } = @props.data
     { progress }     = @props

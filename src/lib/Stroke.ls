@@ -22,9 +22,9 @@ Stroke = module.exports = React.createClass do
     { length } = @props.data
     # XXX: one way
     if @props.progress <= 0 and next.progress > 0
-      @props.onEnterStroke!
+      @props.onEnterStroke @props, next
     if @props.progress < length and next.progress >= length
-      @props.onLeaveStroke!
+      @props.onLeaveStroke @props, next
   componentDidMount:  -> @injectClipPath ...
   componentDidUpdate: -> @injectClipPath ...
   render: ->
