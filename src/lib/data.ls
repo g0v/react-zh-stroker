@@ -92,6 +92,13 @@ undeltaR = (result, current) ->
 scale = (v) -> v * 2060.0px / 256 # hard coded DDDD:
 size = M: 1, L: 1, Q: 2, C: 3
 
+packedFromPath = (filepath) ->
+  [, dirpath, idx, id, ext] =
+    /(.*)([0-9a-fA-F]{2,})([0-9a-fA-F]{2}).(.*)/.exec filepath
+  do
+    filepath: "#dirpath#id.#ext"
+    index:    parseInt idx, 16
+
 fromBinary = (buffer, done) !->
   #start = 1 + path.lastIndexOf \/
   #dir = path.substr 0, start
@@ -101,6 +108,7 @@ fromBinary = (buffer, done) !->
   #p.fail     -> d.reject it
   # .progress -> d.notify it
   #bin <- p.then
+  return unless done
   ByteBuffer.DEFAULT_ENDIAN = ByteBuffer.LITTLE_ENDIAN
   bb = ByteBuffer.wrap buffer
   num-words = bb.readUint16!
@@ -199,4 +207,4 @@ computeLength = (word) ->
 
 
 
-module.exports = { fromXML, fromBinary, fromScanline, computeLength }
+module.exports = { fromXML, packedFromPath, fromBinary, fromScanline, computeLength }
