@@ -40,7 +40,9 @@ Stroke = module.exports = React.createClass do
         | \Q => "Q #{cmd.begin.x} #{cmd.begin.y}, #{cmd.end.x} #{cmd.end.y}"
         | \C => "C #{cmd.begin.x} #{cmd.begin.y}, #{cmd.mid.x} #{cmd.mid.y}, #{cmd.end.x} #{cmd.end.y}"
     outline = "#{outline.join ' '} Z"
-    @id = outline.replace new RegExp(' ', \g), '%20'
+    # XXX: Chrome and IE treat `url()` differently from FireFox
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1249914
+    @id = outline.replace new RegExp(' ', \g), '+'
     track = @props.data.track
     g do
       ref: \stroke
