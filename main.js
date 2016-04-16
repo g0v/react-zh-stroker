@@ -1,9 +1,11 @@
 (function(){
-  var $, React, Word, computeLength, div, log;
+  var $, React, ReactDOM, computeLength, Word, div, log;
   $ = require('jquery');
   React = require('react');
-  Word = require('./').Word;
+  ReactDOM = require('react-dom');
   computeLength = require('./lib/data').computeLength;
+  Word = require('./').Word;
+  Word = React.createFactory(Word);
   div = React.DOM.div;
   log = function(it){
     try {
@@ -15,18 +17,10 @@
     data = computeLength(data);
     colors = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#009688'];
     progress = 0;
-    onEnter = function(){
-      return log('enter');
-    };
-    onLeave = function(){
-      return log('leave');
-    };
-    onEnterStroke = function(){
-      return log('enter stroke');
-    };
-    onLeaveStroke = function(){
-      return log('leave stroke');
-    };
+    onEnter = function(){};
+    onLeave = function(){};
+    onEnterStroke = function(){};
+    onLeaveStroke = function(){};
     App = React.createFactory(React.createClass({
       displayName: 'App',
       getDefaultProps: function(){
@@ -74,7 +68,7 @@
         }.call(this)));
       }
     }));
-    app = React.render(App({
+    app = ReactDOM.render(App({
       data: data
     }), document.getElementById('container'));
     return requestAnimationFrame(app.update);
