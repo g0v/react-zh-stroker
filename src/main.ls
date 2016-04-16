@@ -1,8 +1,11 @@
 $                 = require 'jquery'
 React             = require 'react'
-{ Word }          = require './'
-{ computeLength } = require './lib/data'
+ReactDOM          = require 'react-dom'
 #require './zhStroker/index.css'
+
+{ computeLength } = require './lib/data'
+{ Word }          = require './'
+Word = React.createFactory Word
 
 { div } = React.DOM
 log = -> try console.log it
@@ -17,10 +20,10 @@ data = computeLength data
 colors = <[#f44336 #e91e63 #9c27b0 #3f51b5 #009688]>
 
 progress = 0
-onEnter = -> log 'enter'
-onLeave = -> log 'leave'
-onEnterStroke = -> log 'enter stroke'
-onLeaveStroke = -> log 'leave stroke'
+onEnter = -> #log 'enter'
+onLeave = -> #log 'leave'
+onEnterStroke = -> #log 'enter stroke'
+onLeaveStroke = -> #log 'leave stroke'
 
 App = React.createFactory React.createClass do
   displayName: 'App'
@@ -53,7 +56,7 @@ App = React.createFactory React.createClass do
           width:  dim
           height: dim
 
-app = React.render do
+app = ReactDOM.render do
   App { data }
   document.getElementById \container
 

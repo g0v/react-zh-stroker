@@ -36,6 +36,7 @@ gulp.task \webpack <[compile]> ->
   port = 8080
   host = 'localhost'
   config =
+    devtool: 'source-map'
     entry:
       * "webpack-dev-server/client?http://#host:#port"
       * 'webpack/hot/dev-server'
@@ -50,7 +51,7 @@ gulp.task \webpack <[compile]> ->
     module:
       loaders:
         * test: /\.css$/ loader: \style!css
-        * test: /\.js$/  loader: \react-hot
+        * test: /\.js$/  loader: \react-hot exclude: /node_modules/
         ...
   server = new WebpackDevServer do
     webpack config

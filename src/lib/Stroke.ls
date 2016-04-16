@@ -1,11 +1,11 @@
 React = require 'react'
 Track = React.createFactory require './Track'
 
-{ g, defs, path } = React.DOM
+{ g, defs, path, clip-path } = React.DOM
 
 Stroke = module.exports = React.createClass do
   displayName: "zhStroker.Stroke"
-  getDefaultProps: ->
+  defaultProps:
     data:
       outline: []
       track:   []
@@ -16,8 +16,6 @@ Stroke = module.exports = React.createClass do
     progress: Infinity
     onEnterStroke: ->
     onLeaveStroke: ->
-  injectClipPath: ->
-    @refs.stroke.getDOMNode!setAttribute 'clip-path' "url(##{@id})"
   componentWillReceiveProps: (next) ->
     { length } = @props.data
     # XXX: one way
@@ -25,8 +23,6 @@ Stroke = module.exports = React.createClass do
       @props.onEnterStroke @props, next
     if @props.progress < length and next.progress >= length
       @props.onLeaveStroke @props, next
-  componentDidMount:  -> @injectClipPath ...
-  componentDidUpdate: -> @injectClipPath ...
   render: ->
     { length }   = @props.data
     { progress } = @props
@@ -42,17 +38,15 @@ Stroke = module.exports = React.createClass do
     outline = "#{outline.join ' '} Z"
     # XXX: Chrome and IE treat `url()` differently from FireFox
     # https://bugzilla.mozilla.org/show_bug.cgi?id=1249914
-    @id = outline.replace new RegExp(' ', \g), '+'
+    id = outline.replace new RegExp(' ', \g), '+'
     track = @props.data.track
     g do
-      ref: \stroke
       x: @props.x
       y: @props.y
+      clip-path: "url(##{id})"
       defs {},
-        # SVG element clip-path is not support yet
-        React.createElement do
-          \clipPath
-          id: @id
+        clip-path do
+          id: id
           path do
             d: outline
             fill: \#F00
@@ -62,7 +56,7 @@ Stroke = module.exports = React.createClass do
         comp = Track do
           key:      i
           data:     { bgn, end }
-          color: @props.color
+          color:    @props.color
           progress: progress
         progress -= bgn.length
         comp
