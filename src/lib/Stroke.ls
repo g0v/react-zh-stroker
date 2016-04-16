@@ -5,7 +5,7 @@ Track = React.createFactory require './Track'
 
 Stroke = module.exports = React.createClass do
   displayName: "zhStroker.Stroke"
-  defaultProps:
+  getDefaultProps: ->
     data:
       outline: []
       track:   []
