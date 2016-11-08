@@ -1,6 +1,7 @@
 json/
 node_modules/
 src/
+examples/
 index.html
 gulpfile.ls
 npm-debug.log
