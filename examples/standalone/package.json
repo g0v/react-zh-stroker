@@ -1,0 +1,33 @@
+{
+  "name": "standalone",
+  "version": "0.0.1",
+  "description": "A standalone example for react-zh-stroker",
+  "main": "react-zh-stroker.js",
+  "scripts": {
+    "cleanup": "rimraf ./react-zh-stroker.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "npm run cleanup && npm run build"
+  },
+  "repository": {
+    "url": "https://github.com/g0v/react-zh-stroker/",
+    "type": "git"
+  },
+  "author": "caasi Huang",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "cross-env": "^3.1.3",
+    "json-loader": "^0.5.4",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}

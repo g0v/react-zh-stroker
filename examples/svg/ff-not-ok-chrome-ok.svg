@@ -1,0 +1,13 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="410" height="410"
+  viewBox="0 0 2050 2050">
+  <defs>
+    <clipPath id="%20">
+      <path d="M 699 439 Q 693 395, 688.5 378 Q 684 361, 670 325.5 Q 656 290, 652 283.5 Q 648 277, 628.5 248 Q 609 219, 614 208.5 Q 619 198, 640 194 Q 657 191, 704 204 L 764 221 Q 788 231, 793 243 Q 794 249, 789 272 Q 784 295, 786 321 Q 786 336, 791 374 L 796 422 L 802 483 L 819 633 Q 821 655, 811.5 679.5 Q 802 704, 784 707.5 Q 766 711, 755 665 L 716 505 L 699 439 Z"></path>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#%20)">
+    <path d="M703 216 L792 688" fill="transparent" stroke="#000" stroke-width="250" stroke-linecap="round"></path>
+  </g>
+</svg>
