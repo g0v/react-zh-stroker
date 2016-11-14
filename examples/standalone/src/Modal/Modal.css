@@ -1,0 +1,13 @@
+:local(.className) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 410px;
+  height: 410px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+}

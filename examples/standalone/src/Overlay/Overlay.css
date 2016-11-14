@@ -1,0 +1,17 @@
+:local(.className) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  .overlay__backdrop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #333;
+    opacity: .5;
+  }
+}

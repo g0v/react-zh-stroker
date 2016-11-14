@@ -15,6 +15,7 @@
   "author": "caasi Huang",
   "license": "CC0-1.0",
   "devDependencies": {
+    "autoprefixer": "^6.5.3",
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
@@ -22,8 +23,14 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-1": "^6.16.0",
     "cross-env": "^3.1.3",
+    "css-loader": "^0.25.0",
     "json-loader": "^0.5.4",
+    "postcss": "^5.2.5",
+    "postcss-loader": "^1.1.1",
+    "postcss-scss": "^0.4.0",
+    "precss": "^1.4.0",
     "rimraf": "^2.5.4",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.3"
   },
   "dependencies": {

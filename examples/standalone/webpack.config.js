@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
 
 module.exports = {
   entry: path.join(__dirname, './src/main'),
@@ -36,8 +38,14 @@ module.exports = {
         path.join(__dirname, './node_modules')
       ]
     }, {
+      test: /\.css$/,
+      loaders: ['style', 'css', 'postcss?parser=postcss-scss']
+    }, {
       test: /\.json$/,
       loader: 'json'
     }]
+  },
+  postcss: function() {
+    return [autoprefixer, precss]
   }
 }

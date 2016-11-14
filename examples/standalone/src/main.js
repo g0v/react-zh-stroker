@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
+import Overlay from './Overlay'
+import Modal from './Modal'
 import { Word } from 'react-zh-stroker'
 import computeLength from 'react-zh-stroker/lib/data/computeLength'
 import data from 'react-zh-stroker/json/840c.json'
 const moe = computeLength(data)
 
-class App extends Component {
+
+
+class WordPlayer extends Component {
   state = {
     progress: 0
   }
@@ -38,7 +42,16 @@ class App extends Component {
   }
 }
 
+
+
 global.zhStroker = (id) => {
   const element = document.getElementById(id)
-  render(<App data={moe}>hello</App>, element)
+  render(
+    <Overlay show={true}>
+      <Modal>
+        <WordPlayer data={moe} />
+      </Modal>
+    </Overlay>,
+    element
+  )
 }
