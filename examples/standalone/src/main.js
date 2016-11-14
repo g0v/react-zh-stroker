@@ -4,9 +4,7 @@ import { render } from 'react-dom'
 import Overlay from './Overlay'
 import Modal from './Modal'
 import { Word } from 'react-zh-stroker'
-import computeLength from 'react-zh-stroker/lib/data/computeLength'
-import data from 'react-zh-stroker/json/840c.json'
-const moe = computeLength(data)
+import data from './data'
 
 
 
@@ -16,7 +14,6 @@ class WordPlayer extends Component {
   }
 
   componentDidMount() {
-    console.log('mount')
     this.update = this._update.bind(this)
     this.update()
   }
@@ -49,7 +46,7 @@ global.zhStroker = (id) => {
   render(
     <Overlay show={true}>
       <Modal>
-        <WordPlayer data={moe} />
+        <WordPlayer data={data[3105]} />
       </Modal>
     </Overlay>,
     element
