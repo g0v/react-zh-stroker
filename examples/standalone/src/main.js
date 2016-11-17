@@ -12,7 +12,9 @@ import data from './data'
 
 class WordPlayer extends Component {
   state = {
-    progress: 0
+    before: 0,
+    after: 0,
+    progress: 0,
   }
 
   componentDidMount() {
@@ -22,13 +24,22 @@ class WordPlayer extends Component {
 
   _update() {
     const { data } = this.props
-    let { progress } = this.state
-    progress += 20
+    let { before, after, progress } = this.state
 
-    this.setState({ progress })
-    if (progress < data.length) {
-      requestAnimationFrame(this.update)
+    if (before < 60) {
+      before += 1
+    } else if (progress < data.length) {
+      progress += 20
+    } else if (after < 60) {
+      after += 1
+    } else {
+      before = 0
+      after = 0
+      progress = 0
     }
+
+    this.setState({ before, after, progress })
+    requestAnimationFrame(this.update)
   }
 
   render() {
@@ -43,6 +54,20 @@ class WordPlayer extends Component {
 
 
 
+// main
+const draw = (element, data, show) =>
+  render(
+    <Overlay
+      show={show}
+      onClick={() => draw(element, data, false)}
+    >
+      <Modal>
+        <WordPlayer data={data} />
+      </Modal>
+    </Overlay>,
+    element
+  )
+
 global.zhStroker = (id, char) => {
   const element = document.getElementById(id)
   const [cp = ''] = punycode.ucs2.decode(char)
@@ -52,12 +77,5 @@ global.zhStroker = (id, char) => {
     console.warn(`stroke: ${char} not found`)
   }
 
-  render(
-    <Overlay show={true}>
-      <Modal>
-        <WordPlayer data={d} />
-      </Modal>
-    </Overlay>,
-    element
-  )
+  draw(element, d, true)
 }
