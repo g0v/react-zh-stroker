@@ -1,9 +1,11 @@
+import punycode from 'punycode'
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
 import Overlay from './Overlay'
 import Modal from './Modal'
 import { Word } from 'react-zh-stroker'
+import stroke from 'react-zh-stroker/lib/data/stroke'
 import data from './data'
 
 
@@ -41,12 +43,19 @@ class WordPlayer extends Component {
 
 
 
-global.zhStroker = (id) => {
+global.zhStroker = (id, char) => {
   const element = document.getElementById(id)
+  const [cp = ''] = punycode.ucs2.decode(char)
+  const d = data[cp.toString(16)] || stroke.empty
+
+  if (d === stroke.empty) {
+    console.warn(`stroke: ${char} not found`)
+  }
+
   render(
     <Overlay show={true}>
       <Modal>
-        <WordPlayer data={data[3105]} />
+        <WordPlayer data={d} />
       </Modal>
     </Overlay>,
     element
