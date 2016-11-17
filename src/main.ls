@@ -3,7 +3,7 @@ React             = require 'react'
 ReactDOM          = require 'react-dom'
 #require './zhStroker/index.css'
 
-{ computeLength } = require './lib/data'
+computeLength = require './lib/data/computeLength'
 { Word }          = require './'
 Word = React.createFactory Word
 

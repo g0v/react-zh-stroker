@@ -3,7 +3,7 @@
   $ = require('jquery');
   React = require('react');
   ReactDOM = require('react-dom');
-  computeLength = require('./lib/data').computeLength;
+  computeLength = require('./lib/data/computeLength');
   Word = require('./').Word;
   Word = React.createFactory(Word);
   div = React.DOM.div;
