@@ -6,12 +6,19 @@
     <script src="./react-zh-stroker.js"></script>
   </head>
   <body>
-    <button id="btn">ㄊ</button>
+    <button id="btn0">ㄅ</button>
+    <button id="btn1">ㄆ</button>
     <div id="target"></div>
     <script>
-      var ele = document.getElementById('btn')
-      ele.onclick = function() {
-        zhStroker('target', 'ㄊ');
+      var ele0 = document.getElementById('btn0')
+      var ele1 = document.getElementById('btn1')
+
+      ele0.onclick = function() {
+        zhStroker('target', 'ㄅ');
+      };
+
+      ele1.onclick = function() {
+        zhStroker('target', 'ㄆ');
       };
     </script>
   </body>
