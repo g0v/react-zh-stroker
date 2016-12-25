@@ -29,16 +29,23 @@ Stroke = module.exports = React.createClass do
     # XXX: guard
     progress = 0      if progress < 0
     progress = length if progress > length
+    sum = 0
     outline = for cmd in @props.data.outline
       switch cmd.type
-        | \M => "M #{cmd.x} #{cmd.y}"
-        | \L => "L #{cmd.x} #{cmd.y}"
-        | \Q => "Q #{cmd.begin.x} #{cmd.begin.y}, #{cmd.end.x} #{cmd.end.y}"
-        | \C => "C #{cmd.begin.x} #{cmd.begin.y}, #{cmd.mid.x} #{cmd.mid.y}, #{cmd.end.x} #{cmd.end.y}"
+        | \M =>
+          sum += cmd.x + cmd.y
+          "M #{cmd.x} #{cmd.y}"
+        | \L =>
+          sum += cmd.x + cmd.y
+          "L #{cmd.x} #{cmd.y}"
+        | \Q =>
+          sum += cmd.begin.x + cmd.begin.y + cmd.end.x + cmd.end.y
+          "Q #{cmd.begin.x} #{cmd.begin.y}, #{cmd.end.x} #{cmd.end.y}"
+        | \C =>
+          sum += cmd.begin.x + cmd.begin.y + cmd.mid.x + cmd.mid.y + cmd.end.x + cmd.end.y
+          "C #{cmd.begin.x} #{cmd.begin.y}, #{cmd.mid.x} #{cmd.mid.y}, #{cmd.end.x} #{cmd.end.y}"
     outline = "#{outline.join ' '} Z"
-    # XXX: Chrome and IE treat `url()` differently from FireFox
-    # https://bugzilla.mozilla.org/show_bug.cgi?id=1249914
-    id = outline.replace new RegExp(' ', \g), '+'
+    id = "#sum".replace '.', ''
     track = @props.data.track
     g do
       x: @props.x
