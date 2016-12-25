@@ -7,18 +7,32 @@
   </head>
   <body>
     <button id="btn0">ㄅ</button>
-    <button id="btn1">ㄆ</button>
+    <button id="btn1">ˊ</button>
+    <button id="btn2">ˇ</button>
+    <button id="btn3">ˋ</button>
+    <button id="btn4">˙</button>
     <div id="target"></div>
     <script>
       var ele0 = document.getElementById('btn0')
       var ele1 = document.getElementById('btn1')
+      var ele2 = document.getElementById('btn2')
+      var ele3 = document.getElementById('btn3')
+      var ele4 = document.getElementById('btn4')
 
       ele0.onclick = function() {
         zhStroker('target', 'ㄅ');
       };
-
       ele1.onclick = function() {
-        zhStroker('target', 'ㄆ');
+        zhStroker('target', 'ˊ');
+      };
+      ele2.onclick = function() {
+        zhStroker('target', 'ˇ');
+      };
+      ele3.onclick = function() {
+        zhStroker('target', 'ˋ');
+      };
+      ele4.onclick = function() {
+        zhStroker('target', '˙');
       };
     </script>
   </body>

@@ -55,6 +55,17 @@ class WordPlayer extends Component {
 
 
 // main
+const zeros = (count) => {
+  let ret = ''
+  for(let i = 0; i < count; ++i) ret += '0'
+  return ret
+}
+
+const padZeros = (width, str) => {
+  if (width <= str.length) return str
+  return zeros(width - str.length) + str
+}
+
 const draw = (element, data, show) =>
   render(
     <Overlay
@@ -71,7 +82,7 @@ const draw = (element, data, show) =>
 global.zhStroker = (id, char) => {
   const element = document.getElementById(id)
   const [cp = ''] = punycode.ucs2.decode(char)
-  const d = data[cp.toString(16)] || stroke.empty
+  const d = data[padZeros(4, cp.toString(16))] || stroke.empty
 
   if (d === stroke.empty) {
     console.warn(`stroke: ${char} not found`)
