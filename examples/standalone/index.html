@@ -11,6 +11,7 @@
     <button id="btn2">ˇ</button>
     <button id="btn3">ˋ</button>
     <button id="btn4">˙</button>
+    <button id="btn5">¯</button>
     <div id="target"></div>
     <script>
       var ele0 = document.getElementById('btn0')
@@ -18,6 +19,7 @@
       var ele2 = document.getElementById('btn2')
       var ele3 = document.getElementById('btn3')
       var ele4 = document.getElementById('btn4')
+      var ele5 = document.getElementById('btn5')
 
       ele0.onclick = function() {
         zhStroker('target', 'ㄅ');
@@ -33,6 +35,9 @@
       };
       ele4.onclick = function() {
         zhStroker('target', '˙');
+      };
+      ele5.onclick = function() {
+        zhStroker('target', '¯');
       };
     </script>
   </body>

@@ -1,5 +1,6 @@
 import cl from 'react-zh-stroker/lib/data/computeLength'
 
+import _00af from 'react-zh-stroker/json/00af.json'
 import _02ca from 'react-zh-stroker/json/02ca.json'
 import _02c7 from 'react-zh-stroker/json/02c7.json'
 import _02cb from 'react-zh-stroker/json/02cb.json'
@@ -43,6 +44,7 @@ import _3128 from 'react-zh-stroker/json/3128.json'
 import _3129 from 'react-zh-stroker/json/3129.json'
 
 export default {
+  '00af': cl(_00af),
   '02ca': cl(_02ca),
   '02c7': cl(_02c7),
   '02cb': cl(_02cb),
