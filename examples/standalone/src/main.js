@@ -46,8 +46,9 @@ class WordPlayer extends Component {
     const { data } = this.props
     const { progress } = this.state
 
+    // track size is 65 instead of 50 in the bopomofo mode
     return (
-      <Word data={data} color="#000" progress={progress} />
+      <Word data={data} color="#000" trackSize={400} progress={progress} />
     )
   }
 }
