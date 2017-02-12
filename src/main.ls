@@ -13,6 +13,7 @@ log = -> try console.log it
 ##
 # main
 data <- $.getJSON './json/840c.json'
+#data <- $.getJSON './json/3109.json'
 data = computeLength data
 
 # Material UI colors

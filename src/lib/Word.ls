@@ -1,5 +1,6 @@
 React  = require 'react'
 Stroke = React.createFactory require './Stroke'
+equal = require './data/equal'
 
 { svg, g } = React.DOM
 
@@ -14,6 +15,7 @@ Word = module.exports = React.createClass do
     width:  410
     height: 410
     color: \black
+    trackSize: 200
     progress: Infinity
     onEnter: ->
     onLeave: ->
@@ -30,10 +32,11 @@ Word = module.exports = React.createClass do
     { progress }     = @props
     progress = 0      if progress < 0
     progress = length if progress > length
+    progress = length if equal progress, length
     svg do
       width:  @props.width
       height: @props.height
-      view-box: "0 0 2050 2050"
+      view-box: "0 0 2048 2048"
       version: 1.1
       xmlns: '"http://www.w3.org/2000/svg'
       g do
@@ -41,10 +44,11 @@ Word = module.exports = React.createClass do
         y: @props.y
         for i, stroke of word
           comp = Stroke do
-            key:      i
-            data:     stroke
-            color:    @props.color
-            progress: progress
+            key:       i
+            data:      stroke
+            color:     @props.color
+            trackSize: @props.trackSize
+            progress:  progress
             onEnterStroke: @props.onEnterStroke
             onLeaveStroke: @props.onLeaveStroke
           progress -= stroke.length

@@ -4,6 +4,7 @@ fromBinary     = require \fromBinary
 fromScanline   = require \fromScanline
 computeLength  = require \computeLength
 storke         = require \storke
+equal          = require \equal
 
 
 
@@ -14,4 +15,5 @@ module.exports =
   , fromScanline
   , computeLength
   , storke
+  , equal
   }

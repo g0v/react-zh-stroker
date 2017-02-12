@@ -1,5 +1,6 @@
 React = require 'react'
 Track = React.createFactory require './Track'
+equal = require './data/equal'
 
 { g, defs, path, clip-path } = React.DOM
 
@@ -13,6 +14,7 @@ Stroke = module.exports = React.createClass do
     x: 0
     y: 0
     color: \black
+    trackSize: 200
     progress: Infinity
     onEnterStroke: ->
     onLeaveStroke: ->
@@ -29,6 +31,7 @@ Stroke = module.exports = React.createClass do
     # XXX: guard
     progress = 0      if progress < 0
     progress = length if progress > length
+    progress = length if equal progress, length
     sum = 0
     outline = for cmd in @props.data.outline
       switch cmd.type
@@ -44,27 +47,40 @@ Stroke = module.exports = React.createClass do
         | \C =>
           sum += cmd.begin.x + cmd.begin.y + cmd.mid.x + cmd.mid.y + cmd.end.x + cmd.end.y
           "C #{cmd.begin.x} #{cmd.begin.y}, #{cmd.mid.x} #{cmd.mid.y}, #{cmd.end.x} #{cmd.end.y}"
-    outline = "#{outline.join ' '} Z"
+    outline.push 'Z'
+    outline = outline.join ' '
     id = "#sum".replace '.', ''
     track = @props.data.track
-    g do
-      x: @props.x
-      y: @props.y
-      clip-path: "url(##{id})"
-      defs {},
-        clip-path do
-          id: id
-          path do
-            d: outline
-            fill: \#F00
-      for i til track.length - 1
-        bgn = track[i]
-        end = track[i + 1]
-        comp = Track do
-          key:      i
-          data:     { bgn, end }
-          color:    @props.color
-          progress: progress
-        progress -= bgn.length
-        comp
+    if progress isnt length then
+      g do
+        x: @props.x
+        y: @props.y
+        clip-path: "url(##{id})"
+        defs {},
+          clip-path do
+            id: id
+            path do
+              d: outline
+              fill: \#F00
+        for i til track.length - 1
+          bgn = track[i]
+          end = track[i + 1]
+          comp = Track do
+            key:      i
+            data:     { bgn, end }
+            color:    @props.color
+            trackSize: @props.trackSize
+            progress: progress
+          progress -= bgn.length
+          comp
+    else
+      # clip-path will not close itself like path do
+      g do
+        x: @props.x
+        y: @props.y
+        path do
+          d: outline
+          fill: @props.color
+          strokeWidth: 1
+          storkeLinejoin: \round
 
