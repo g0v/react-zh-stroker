@@ -82,5 +82,5 @@ Stroke = module.exports = React.createClass do
           d: outline
           fill: @props.color
           strokeWidth: 1
-          storkeLinejoin: \round
+          strokeLinejoin: \round
 
