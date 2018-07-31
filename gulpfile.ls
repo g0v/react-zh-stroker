@@ -7,7 +7,7 @@ require! {
   'gulp-util': gutil
   'gulp-livescript': livescript
   'gulp-stylus': stylus
-  'gulp-jade': jade
+  'gulp-pug': pug
 }
 
 # http://stackoverflow.com/questions/7697038/more-than-10-lines-in-a-node-js-stack-error
@@ -66,7 +66,7 @@ gulp.task \webpack <[compile]> ->
 gulp.task \html ->
   gulp
     .src "#{options.src}/*.jade"
-    .pipe jade!
+    .pipe pug!
     .pipe gulp.dest options.build
 
 gulp.task \watch <[html webpack]> ->
