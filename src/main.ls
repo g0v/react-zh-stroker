@@ -1,4 +1,10 @@
-$                 = require 'jquery'
+require 'whatwg-fetch'
+getJSON = (path, next) ->
+  fetch path
+    .then (.json!)
+    .then next
+    .catch console.error
+
 React             = require 'react'
 ReactDOM          = require 'react-dom'
 #require './zhStroker/index.css'
@@ -12,8 +18,8 @@ log = -> try console.log it
 
 ##
 # main
-data <- $.getJSON './json/840c.json'
-#data <- $.getJSON './json/3109.json'
+data <- getJSON './json/840c.json'
+#data <- getJSON './json/3109.json'
 data = computeLength data
 
 # Material UI colors

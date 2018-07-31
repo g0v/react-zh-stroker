@@ -1,6 +1,12 @@
 (function(){
-  var $, React, ReactDOM, computeLength, Word, div, log;
-  $ = require('jquery');
+  var getJSON, React, ReactDOM, computeLength, Word, div, log;
+  require('whatwg-fetch');
+  getJSON = function(path, next){
+    var this$ = this;
+    return fetch(path).then(function(it){
+      return it.json();
+    }).then(next)['catch'](console.error);
+  };
   React = require('react');
   ReactDOM = require('react-dom');
   computeLength = require('./lib/data/computeLength');
@@ -12,7 +18,7 @@
       return console.log(it);
     } catch (e$) {}
   };
-  $.getJSON('./json/840c.json', function(data){
+  getJSON('./json/840c.json', function(data){
     var colors, progress, onEnter, onLeave, onEnterStroke, onLeaveStroke, App, app;
     data = computeLength(data);
     colors = ['#f44336', '#e91e63', '#9c27b0', '#3f51b5', '#009688'];

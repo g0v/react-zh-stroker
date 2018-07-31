@@ -38,6 +38,7 @@ gulp.task \webpack <[compile]> ->
   config =
     devtool: 'source-map'
     entry:
+      * 'react-hot-loader/patch'
       * "webpack-dev-server/client?http://#host:#port"
       * 'webpack/hot/dev-server'
       * './main.js'
@@ -47,11 +48,12 @@ gulp.task \webpack <[compile]> ->
       publicPath: '/'
     plugins:
       * new webpack.HotModuleReplacementPlugin
+      * new webpack.NamedModulesPlugin
+      * new webpack.NoEmitOnErrorsPlugin
       ...
     module:
-      loaders:
-        * test: /\.css$/ loader: \style!css
-        * test: /\.js$/  loader: \react-hot exclude: /node_modules/
+      rules:
+        * test: /\.css$/ use: \style-loader!css
         ...
   server = new WebpackDevServer do
     webpack config
