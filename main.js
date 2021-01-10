@@ -8,7 +8,7 @@
   };
   React = require('react');
   ReactDOM = require('react-dom');
-  ref$ = require('.'), data = ref$.data, Word = ref$.Word;
+  ref$ = require('./dist'), data = ref$.data, Word = ref$.Word;
   computeLength = data.computeLength;
   Word = React.createFactory(Word);
   div = React.DOM.div;
