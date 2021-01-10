@@ -5,8 +5,8 @@ A [stroke drawing](//g0v.github.io/react-zh-stroker/) React component for [zh-st
 ## Develop
 
 ```bash
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ## Old Repository
