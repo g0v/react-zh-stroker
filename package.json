@@ -2,10 +2,13 @@
   "name": "react-zh-stroker",
   "version": "0.1.12",
   "description": "A stroke drawing React component for zh-stroke-data",
-  "main": "./zh-stroker.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
   "scripts": {
     "start": "gulp",
-    "prepare": "gulp compile",
+    "clean": "rm -rf ./dist",
+    "build": "rollup --config",
+    "watch": "rollup --config --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,6 +24,8 @@
     "react-dom": "^0.14.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
     "css-loader": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-livescript": "^2.3.0",
@@ -32,6 +37,10 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-hot-loader": "^3.1.3",
+    "rollup": "^2.36.1",
+    "rollup-plugin-auto-external": "^2.0.0",
+    "rollup-plugin-livescript": "^0.1.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
     "style-loader": "^0.21.0",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.2",

@@ -1,10 +1,10 @@
-fromXML        = require \fromXML
-packedFromPath = require \packedFromPath
-fromBinary     = require \fromBinary
-fromScanline   = require \fromScanline
-computeLength  = require \computeLength
-storke         = require \storke
-equal          = require \equal
+fromXML        = require './fromXML'
+packedFromPath = require './packedFromPath'
+fromBinary     = require './fromBinary'
+fromScanline   = require './fromScanline'
+computeLength  = require './computeLength'
+stroke         = require './stroke'
+equal          = require './equal'
 
 
 
@@ -14,6 +14,6 @@ module.exports =
   , fromBinary
   , fromScanline
   , computeLength
-  , storke
+  , stroke
   , equal
   }
