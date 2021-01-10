@@ -5,7 +5,7 @@ import builtins from 'rollup-plugin-node-builtins';
 import resolve from '@rollup/plugin-node-resolve';
 
 const config = {
-  input: 'src/lib/index.ls',
+  input: 'src/index.ls',
   output: [{
     file: 'dist/index.js',
     format: 'cjs',
