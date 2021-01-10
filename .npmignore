@@ -1,8 +1,14 @@
 json/
+bin/
+test/
 node_modules/
 src/
 examples/
 index.html
 gulpfile.ls
+rollup.config.js
+main.js
+bundle.js
 npm-debug.log
+yarn.lock
 *.swp
