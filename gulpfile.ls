@@ -14,7 +14,7 @@ require! {
 #Error.stackTraceLimit = Infinity
 
 options =
-  src:   path.resolve './src'
+  src:   path.resolve './examples/main'
   dist:  path.resolve '.'
   build: path.resolve '.'
 
@@ -73,6 +73,6 @@ gulp.task \watch <[html webpack]> ->
   gulp
     ..watch "#{options.src}/**/*.ls"    <[compile]>
     ..watch "#{options.src}/**/*.styl"  <[compile]>
-    #..watch "#{options.src}/*.jade"     <[html]>
+    ..watch "#{options.src}/*.pug"      <[html]>
 
 gulp.task \default <[watch]>

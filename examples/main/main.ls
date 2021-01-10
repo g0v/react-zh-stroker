@@ -7,10 +7,9 @@ getJSON = (path, next) ->
 
 React             = require 'react'
 ReactDOM          = require 'react-dom'
-#require './zhStroker/index.css'
+{ data, Word }    = require '.'
 
-computeLength = require './lib/data/computeLength'
-{ Word }          = require './'
+computeLength = data.computeLength
 Word = React.createFactory Word
 
 { div } = React.DOM

@@ -1,16 +1,15 @@
 (function(){
-  var getJSON, React, ReactDOM, computeLength, Word, div, log;
+  var getJSON, React, ReactDOM, ref$, data, Word, computeLength, div, log;
   require('whatwg-fetch');
   getJSON = function(path, next){
-    var this$ = this;
     return fetch(path).then(function(it){
       return it.json();
     }).then(next)['catch'](console.error);
   };
   React = require('react');
   ReactDOM = require('react-dom');
-  computeLength = require('./lib/data/computeLength');
-  Word = require('./').Word;
+  ref$ = require('.'), data = ref$.data, Word = ref$.Word;
+  computeLength = data.computeLength;
   Word = React.createFactory(Word);
   div = React.DOM.div;
   log = function(it){
