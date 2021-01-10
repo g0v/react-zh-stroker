@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "scripts": {
-    "start": "gulp",
+    "start": "yarn watch & gulp",
     "clean": "rm -rf ./dist",
     "build": "rollup --config",
     "watch": "rollup --config --watch",
