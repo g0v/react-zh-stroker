@@ -4,9 +4,10 @@ import { render } from 'react-dom'
 
 import Overlay from './Overlay'
 import Modal from './Modal'
-import { Word } from 'react-zh-stroker'
-import stroke from 'react-zh-stroker/lib/data/stroke'
+import { default as RZS } from 'react-zh-stroker'
 import data from './data'
+
+const { data: D, Word } = RZS
 
 
 
@@ -83,9 +84,9 @@ const draw = (element, data, show) =>
 global.zhStroker = (id, char) => {
   const element = document.getElementById(id)
   const [cp = ''] = punycode.ucs2.decode(char)
-  const d = data[padZeros(4, cp.toString(16))] || stroke.empty
+  const d = data[padZeros(4, cp.toString(16))] || D.stroke.empty
 
-  if (d === stroke.empty) {
+  if (d === D.stroke.empty) {
     console.warn(`stroke: ${char} not found`)
   }
 

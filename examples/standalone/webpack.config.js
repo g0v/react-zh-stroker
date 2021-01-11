@@ -15,7 +15,6 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         dead_code: true,
@@ -27,25 +26,28 @@ module.exports = {
     alias: {
       'react-zh-stroker': path.join(__dirname, '../../')
     },
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       include: [
         path.join(__dirname, './src'),
         path.join(__dirname, './node_modules')
       ]
     }, {
       test: /\.css$/,
-      loaders: ['style', 'css', 'postcss?parser=postcss-scss']
-    }, {
-      test: /\.json$/,
-      loader: 'json'
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: [autoprefixer],
+          },
+        },
+      ]
     }]
   },
-  postcss: function() {
-    return [autoprefixer, precss]
-  }
 }
