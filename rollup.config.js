@@ -11,10 +11,6 @@ const config = {
     format: 'cjs',
     exports: 'default',
     sourcemap: true,
-  }, {
-    file: 'dist/index.esm.js',
-    format: 'esm',
-    sourcemap: true,
   }],
   plugins: [
     autoExternal(),

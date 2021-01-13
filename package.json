@@ -3,7 +3,6 @@
   "version": "0.1.14",
   "description": "A stroke drawing React component for zh-stroke-data",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
   "scripts": {
     "start": "yarn watch & gulp",
     "clean": "rm -rf ./dist",
