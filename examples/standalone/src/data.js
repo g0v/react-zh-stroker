@@ -1,4 +1,4 @@
-import { default as RZS } from 'react-zh-stroker'
+import { data } from 'react-zh-stroker'
 
 import _00af from 'react-zh-stroker/json/00af.json'
 import _02ca from 'react-zh-stroker/json/02ca.json'
@@ -43,7 +43,7 @@ import _3127 from 'react-zh-stroker/json/3127.json'
 import _3128 from 'react-zh-stroker/json/3128.json'
 import _3129 from 'react-zh-stroker/json/3129.json'
 
-const cl = RZS.data.computeLength
+const cl = data.computeLength
 
 export default {
   '00af': cl(_00af),

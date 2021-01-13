@@ -4,10 +4,8 @@ import { render } from 'react-dom'
 
 import Overlay from './Overlay'
 import Modal from './Modal'
-import { default as RZS } from 'react-zh-stroker'
+import { data as D, Word } from 'react-zh-stroker'
 import data from './data'
-
-const { data: D, Word } = RZS
 
 
 

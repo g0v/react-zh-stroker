@@ -7,7 +7,7 @@ getJSON = (path, next) ->
 
 React             = require 'react'
 ReactDOM          = require 'react-dom'
-{ data, Word }    = require './dist'
+{ data, Word }    = require '.'
 
 computeLength = data.computeLength
 Word = React.createFactory Word
