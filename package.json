@@ -1,6 +1,6 @@
 {
   "name": "react-zh-stroker",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "A stroke drawing React component for zh-stroke-data",
   "main": "./dist/index.js",
   "scripts": {
