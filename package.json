@@ -47,7 +47,7 @@
     "whatwg-fetch": "^2.0.4"
   },
   "dependencies": {
-    "bytebuffer": "^3.5.4",
+    "bytebuffer": "^5.0.1",
     "sax": "^0.6.1"
   }
 }
