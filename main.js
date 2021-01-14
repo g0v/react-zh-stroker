@@ -1,5 +1,5 @@
 (function(){
-  var getJSON, React, ReactDOM, ref$, data, Word, computeLength, div, log;
+  var getJSON, React, ReactDOM, createClass, ref$, data, Word, createElement, computeLength, log;
   require('whatwg-fetch');
   getJSON = function(path, next){
     return fetch(path).then(function(it){
@@ -8,10 +8,10 @@
   };
   React = require('react');
   ReactDOM = require('react-dom');
+  createClass = require('create-react-class');
   ref$ = require('.'), data = ref$.data, Word = ref$.Word;
+  createElement = React.createElement;
   computeLength = data.computeLength;
-  Word = React.createFactory(Word);
-  div = React.DOM.div;
   log = function(it){
     try {
       return console.log(it);
@@ -26,7 +26,7 @@
     onLeave = function(){};
     onEnterStroke = function(){};
     onLeaveStroke = function(){};
-    App = React.createFactory(React.createClass({
+    App = createClass({
       displayName: 'App',
       getDefaultProps: function(){
         return {
@@ -47,7 +47,7 @@
       render: function(){
         var dim, i;
         dim = 400;
-        return div({}, Word({
+        return createElement('div', {}, createElement(Word, {
           data: this.props.data,
           color: colors[0],
           progress: this.state.progress,
@@ -60,7 +60,7 @@
           for (i$ = 1; i$ <= 4; ++i$) {
             i = i$;
             dim /= 2;
-            results$.push(Word({
+            results$.push(createElement(Word, {
               key: i,
               data: this.props.data,
               color: colors[i],
@@ -72,8 +72,8 @@
           return results$;
         }.call(this)));
       }
-    }));
-    app = ReactDOM.render(App({
+    });
+    app = ReactDOM.render(createElement(App, {
       data: data
     }), document.getElementById('container'));
     return requestAnimationFrame(app.update);
