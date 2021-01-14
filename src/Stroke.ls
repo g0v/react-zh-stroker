@@ -1,10 +1,11 @@
 React = require 'react'
-Track = React.createFactory require './Track'
+createClass = require 'create-react-class'
+Track = require './Track'
 equal = require './data/equal'
 
-{ g, defs, path, clip-path } = React.DOM
+{ createElement } = React
 
-Stroke = module.exports = React.createClass do
+Stroke = module.exports = createClass do
   displayName: "zhStroker.Stroke"
   getDefaultProps: ->
     data:
@@ -18,7 +19,7 @@ Stroke = module.exports = React.createClass do
     progress: Infinity
     onEnterStroke: ->
     onLeaveStroke: ->
-  componentWillReceiveProps: (next) ->
+  UNSAFE_componentWillReceiveProps: (next) ->
     { length } = @props.data
     # XXX: one way
     if @props.progress <= 0 and next.progress > 0
@@ -52,33 +53,33 @@ Stroke = module.exports = React.createClass do
     id = "#sum".replace '.', ''
     track = @props.data.track
     if progress isnt length then
-      g do
+      createElement \g,
         x: @props.x
         y: @props.y
         clip-path: "url(##{id})"
-        defs {},
-          clip-path do
+        createElement \defs, {},
+          createElement \clipPath,
             id: id
-            path do
+            createElement \path,
               d: outline
               fill: \#F00
         for i til track.length - 1
           bgn = track[i]
           end = track[i + 1]
-          comp = Track do
-            key:      i
-            data:     { bgn, end }
-            color:    @props.color
+          comp = createElement Track,
+            key:       i
+            data:      { bgn, end }
+            color:     @props.color
             trackSize: @props.trackSize
-            progress: progress
+            progress:  progress
           progress -= bgn.length
           comp
     else
       # clip-path will not close itself like path do
-      g do
+      createElement \g,
         x: @props.x
         y: @props.y
-        path do
+        createElement \path,
           d: outline
           fill: @props.color
           strokeWidth: 1

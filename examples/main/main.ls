@@ -7,12 +7,12 @@ getJSON = (path, next) ->
 
 React             = require 'react'
 ReactDOM          = require 'react-dom'
+createClass       = require 'create-react-class'
 { data, Word }    = require '.'
 
+createElement = React.createElement
 computeLength = data.computeLength
-Word = React.createFactory Word
 
-{ div } = React.DOM
 log = -> try console.log it
 
 ##
@@ -31,7 +31,7 @@ onLeave = -> #log 'leave'
 onEnterStroke = -> #log 'enter stroke'
 onLeaveStroke = -> #log 'leave stroke'
 
-App = React.createFactory React.createClass do
+App = createClass do
   displayName: 'App'
   getDefaultProps: ->
     data: {}
@@ -42,8 +42,8 @@ App = React.createFactory React.createClass do
     requestAnimationFrame @update
   render: ->
     dim = 400
-    div {},
-      Word {
+    createElement \div {},
+      createElement Word, {
         data: @props.data
         color: colors.0
         progress: @state.progress
@@ -54,7 +54,7 @@ App = React.createFactory React.createClass do
       }
       for i from 1 to 4
         dim /= 2
-        Word do
+        createElement Word, do
           key: i
           data: @props.data
           color: colors[i]
@@ -63,7 +63,7 @@ App = React.createFactory React.createClass do
           height: dim
 
 app = ReactDOM.render do
-  App { data }
+  createElement App, { data }
   document.getElementById \container
 
 requestAnimationFrame app.update

@@ -1,8 +1,10 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
+createClass = require 'create-react-class'
 
-{ g, path } = React.DOM
+{ createElement } = React
 
-Track = module.exports = React.createClass do
+Track = module.exports = createClass do
   displayName: "zhStroker.Track"
   getDefaultProps: ->
     data:
@@ -30,10 +32,10 @@ Track = module.exports = React.createClass do
     valid = not isNaN ratio     and
             ratio isnt Infinity and
             ratio isnt 0
-    g do
+    createElement \g,
       x: @props.x
       y: @props.y
-      path do
+      createElement \path,
         d: if valid
           then track
           else 'M0 0 L0 0'
