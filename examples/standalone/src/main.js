@@ -1,5 +1,5 @@
 import punycode from 'punycode'
-import React, { Component } from 'react'
+import React, { useRef, useState, useCallback, useEffect } from 'react'
 import { render } from 'react-dom'
 
 import Overlay from './Overlay'
@@ -9,47 +9,45 @@ import data from './data'
 
 
 
-class WordPlayer extends Component {
-  state = {
-    before: 0,
-    after: 0,
-    progress: 0,
-  }
+function WordPlayer({ data }) {
+  const anime = useRef();
+  const [before, setBefore] = useState(0);
+  const [after, setAfter] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-  componentDidMount() {
-    this.update = this._update.bind(this)
-    this.update()
-  }
-
-  _update() {
-    const { data } = this.props
-    let { before, after, progress } = this.state
-
+  const update = useCallback(() => {
     if (before < 60) {
-      before += 1
+      setBefore(before + 1);
     } else if (progress < data.length) {
-      progress += 20
+      setProgress(progress + 20);
     } else if (after < 60) {
-      after += 1
+      setAfter(after + 1);
     } else {
-      before = 0
-      after = 0
-      progress = 0
+      setBefore(0);
+      setAfter(0);
+      setProgress(0);
     }
+    anime.current = requestAnimationFrame(update);
+  }, [data, before, after, progress]);
 
-    this.setState({ before, after, progress })
-    requestAnimationFrame(this.update)
-  }
+  useEffect(() => {
+    anime.current = requestAnimationFrame(update);
+    return () => {
+      if (!anime.current) return;
+      cancelAnimationFrame(anime.current);
+      anime.current = undefined;
+    }
+  }, [update]);
 
-  render() {
-    const { data } = this.props
-    const { progress } = this.state
-
-    // track size is 65 instead of 50 in the bopomofo mode
-    return (
-      <Word data={data} color="#000" trackSize={400} progress={progress} />
-    )
-  }
+  // track size is 65 instead of 50 in the bopomofo mode
+  return (
+    <Word
+      data={data}
+      color="#000"
+      trackSize={400}
+      progress={progress}
+    />
+  );
 }
 
 
