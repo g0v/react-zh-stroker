@@ -32,6 +32,8 @@ function App() {
 
 By changing the `progress` property dynamically, you can animate the word.
 
+Check [this example][3] for more information.
+
 ## APIs
 
 ### `Word` component
@@ -107,4 +109,4 @@ yarn start
 
 [1]: https://github.com/g0v/zh-stroke-data
 [2]: http://stroke-order.learningweb.moe.edu.tw/
-
+[3]: https://github.com/g0v/react-zh-stroker/blob/gh-pages/examples/standalone/src/main.js
