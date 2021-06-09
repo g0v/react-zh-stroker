@@ -36,6 +36,7 @@ gulp.task \webpack <[compile]> ->
   port = 8080
   host = 'localhost'
   config =
+    mode: 'development'
     devtool: 'source-map'
     entry:
       * 'react-hot-loader/patch'
@@ -46,10 +47,12 @@ gulp.task \webpack <[compile]> ->
       path: __dirname # required for webpack-dev-server
       filename: 'bundle.js'
       publicPath: '/'
+    resolve:
+      fallback:
+        stream: require.resolve('stream-browserify')
+        buffer: require.resolve('buffer')
     plugins:
       * new webpack.HotModuleReplacementPlugin
-      * new webpack.NamedModulesPlugin
-      * new webpack.NoEmitOnErrorsPlugin
       ...
     module:
       rules:

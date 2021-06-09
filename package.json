@@ -41,13 +41,15 @@
     "rollup-plugin-livescript": "^0.1.2",
     "rollup-plugin-node-builtins": "^2.1.2",
     "style-loader": "^0.21.0",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.5",
+    "webpack": "^5.38.1",
+    "webpack-dev-server": "^3.11.2",
     "whatwg-fetch": "^2.0.4"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "bytebuffer": "^5.0.1",
     "create-react-class": "^15.7.0",
-    "sax": "^0.6.1"
+    "sax": "^0.6.1",
+    "stream-browserify": "^3.0.0"
   }
 }
